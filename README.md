@@ -1,16 +1,28 @@
-# Nextra Docs Template 
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<div align="center">
+<img src="assets/images/deoxys.jpg" height="256" style="border-radius: 15px;">
+</div>
 
-This is a template for creating documentation with [Nextra](https://nextra.site).
+<div align="center">
+<br />
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
 
-[**Live Demo →**](https://nextra-docs-template.vercel.app)
+[![GitHub Workflow Status](https://github.com/kasarLabs/deoxys-docs/actions/workflows/test.yml/badge.svg)](https://github.com/kasarLabs/deoxys-docs/actions/workflows/test.yml)
+[![Project license](https://img.shields.io/github/license/kasarLabs/deoxys.svg?style=flat-square)](LICENSE)
+[![Pull Requests welcome](https://img.shields.io/badge/PRs-welcome-ff69b4.svg?style=flat-square)](https://github.com/kasarLabs/deoxys-docs/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
+<a href="https://twitter.com/KasarLabs">
+<img src="https://img.shields.io/twitter/follow/KasarLabs?style=social"/>
+</a>
+<a href="https://github.com/kasarlabs/deoxys">
+<img src="https://img.shields.io/github/stars/kasarlabs/deoxys?style=social"/>
+</a>
+</div>
 
-[![](.github/screenshot.png)](https://nextra-docs-template.vercel.app)
+# 👽 Deoxys-docs: Starknet full node client documentation.
 
-## Quick Start
-
-Click the button to clone this repository and deploy it on Vercel:
-
-[![](https://vercel.com/button)](https://vercel.com/new/clone?s=https%3A%2F%2Fgithub.com%2Fshuding%2Fnextra-docs-template&showOptionalTeamCreation=false)
+Documentation for Deoxys, a Starknet full node client, based on substrate, powered by Rust.
 
 ## Local Development
 

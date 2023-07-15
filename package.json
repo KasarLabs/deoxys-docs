@@ -1,22 +1,18 @@
 {
-  "name": "nextra-docs-template",
+  "name": "deoxys-docs",
   "version": "0.0.1",
-  "description": "Nextra docs template",
+  "description": "Deoxys docs",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/shuding/nextra-docs-template.git"
-  },
-  "author": "Shu Ding <g@shud.in>",
+  "author": "KasarLabs <antiyro@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/shuding/nextra-docs-template/issues"
+    "url": "https://github.com/KasarLabs/deoxys-docs"
   },
-  "homepage": "https://github.com/shuding/nextra-docs-template#readme",
+  "homepage": "https://github.com/KasarLabs/deoxys-docs#readme",
   "dependencies": {
     "next": "^13.0.6",
     "nextra": "latest",
