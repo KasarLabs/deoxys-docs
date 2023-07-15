@@ -3,7 +3,7 @@ import { DocsThemeConfig } from 'nextra-theme-docs'
 import { useRouter } from 'next/router';
 
 const config: DocsThemeConfig = {
-	logo: <span>Madara</span>,
+	logo: <span>👽 Deoxys</span>,
 	project: {
 		link: "https://github.com/keep-starknet-strange/madara",
 	},
