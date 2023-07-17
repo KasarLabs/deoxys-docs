@@ -4,7 +4,33 @@ powered by Rust. It unlocks the full potential of full nodes on Starknet.
 
 ### Full nodes
 
+Full nodes track Starknet’s state as it evolves over time and allow users and developers to query and change this state via [Starknet’s JSON-RPC](https://github.com/starkware-libs/starknet-specs/blob/master/api/starknet_api_openrpc.json). An important thing to note - full nodes don't change the state themselves. Currently, they forward the requests to the sequencer and pull state updates from it to reach the latest block.
+
+Right now on Starknet we have different full-node implementations:
+
+- [Deoxys](https://github.com/eqlabs/pathfinder) - Rust/Substrate based
+- [Pathfinder](https://github.com/eqlabs/pathfinder) - Rust based
+- [Juno](https://github.com/nethermindeth/juno) - Golang based
+- [Papyrus](https://github.com/starkware-libs/papyrus) - Rust based
+
+Full nodes are like guardians of the Starknet state, they track and store a record of it. Sequencers themselves have full nodes.
 ### Substrate
 
+Substrate is a flexible, open-source framework developed by Parity Technologies for creating robust blockchains. It offers essential infrastructure through its Substrate Core and a range of pre-built modules via the Substrate Runtime Module Library (SRML).
+
+By using Substrate, Deoxys is able to concentrate on building unique features of a StarkNet full node without having to create standard blockchain functions from the ground up. Substrate's modularity also allows easy network upgrades, changes, and the addition of new features. Furthermore, its extensibility ensures scalability and interoperability, both key aspects in the evolution of the Starknet ecosystem.
+
 ### Rust
+
+Rust is a systems programming language that emphasizes safety, speed, and concurrency. It is known for its powerful type system, memory safety guarantees, and minimal runtime. Rust's design prevents many common programming errors, like null pointer dereferencing and data races, which makes it an ideal choice for building reliable, high-performance systems.
+
+In the context of Deoxys, Rust provides a number of benefits:
+
+    - **Memory Safety**: Rust's ownership model guarantees memory safety without needing a garbage collector, which can be a bottleneck in high-performance systems.
+    - **Concurrency**: Rust has first-class support for concurrent and distributed systems, making it perfect for a distributed, concurrent environment like a blockchain.
+    - **Interoperability**: Rust has excellent interoperability with other languages, which can be useful in a multi-language, open-source project.
+    - **Performance**: Rust is designed to perform nearly as well as C++, making it suitable for a high-throughput system like a blockchain network.
+    - **Community and Ecosystem**: Rust has a strong and growing community of developers, and its package ecosystem, Crates.io, provides a wealth of libraries that can help speed up the development process.
+
+Given these benefits, Rust is well-suited for implementing a Starknet full node. It allows Deoxys to achieve high performance and reliability, while its strong memory safety guarantees help ensure the node operates as expected. Moreover, Rust's advanced concurrency features enable Deoxys to efficiently process multiple transactions and requests concurrently, enhancing its ability to manage the Starknet state.
 
