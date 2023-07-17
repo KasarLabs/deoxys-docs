@@ -5,20 +5,20 @@ import { useRouter } from 'next/router';
 const config: DocsThemeConfig = {
 	logo: <span>👽 Deoxys</span>,
 	project: {
-		link: "https://github.com/keep-starknet-strange/madara",
+		link: "https://github.com/kasarlabs/deoxys",
 	},
 	chat: {
-		link: "https://t.me/MadaraStarknet",
+		link: "https://t.me/kasarlabs",
 	},
-	docsRepositoryBase: "https://github.com/EvolveArt/madara-docs/tree/main",
+	docsRepositoryBase: "https://github.com/kasarLabs/deoxys-docs/tree/main",
 	footer: {
 		text: (
-			<span>MIT {new Date().getFullYear()} © Madara - Starknet App Stack</span>
+			<span>MIT {new Date().getFullYear()} © Deoxys - Kasar Labs</span>
 		),
 	},
 	editLink: {
 		text: (
-			<span>Contribute to Madara | Edit on GitHub</span>
+			<span>Contribute to Deoxys | Edit on GitHub</span>
 		),
 	},
 	primaryHue: 10,

@@ -1,19 +1,18 @@
 {
 	"--": {
 		"type": "separator",
-		"title": "Madara Stack"
+		"title": "Introduction"
 	},
-	"index": "Madara",
+	"index": "Deoxys",
+	"prerequisites": "Prerequisites",
 	"architecture": "Architecture",
-	"why": "Why",
 	"---": {
 		"type": "separator",
-		"title": "Build on Madara"
+		"title": "Setup"
 	},
 	"build": "Get started",
-	"config": "Configure",
-	"tools": "Tooling",
-	"ecosystem": "Ecosystem",
+	"starknet": "Starknet",
+	"network": "Network",
 	"contribute": "Contribute",
 	"----": {
 		"type": "separator",
@@ -27,7 +26,7 @@
 	"contact": {
 		"title": "Contact ↗",
 		"type": "page",
-		"href": "https://t.me/MadaraStarknet",
+		"href": "https://t.me/kasarlabs",
 		"newWindow": true
 	}
 }
