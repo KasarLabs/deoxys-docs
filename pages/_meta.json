@@ -11,8 +11,8 @@
 		"title": "Setup"
 	},
 	"build": "Get started",
+	"network": "Configuration",
 	"starknet": "Starknet",
-	"network": "Network",
 	"contribute": "Contribute",
 	"----": {
 		"type": "separator",
@@ -28,5 +28,6 @@
 		"type": "page",
 		"href": "https://t.me/kasarlabs",
 		"newWindow": true
-	}
+	},
+	"starknodes": "Starknodes"
 }

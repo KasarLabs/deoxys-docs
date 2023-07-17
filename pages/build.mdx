@@ -1,9 +1,8 @@
 import { Steps } from 'nextra-theme-docs'
 
-# Build upon Madara
+# Build upon Deoxys
 
-*Uchiwa Madara* <br></br>In this section, we will guide you through the building process so you can start hacking on the Madara stack.
-We will go from running your chain locally to changing the consensus algorithm and interacting with smart contracts on your own chain!
+*Professor Oak* <br></br>In this section, we will guide you through the build and run process so that you can run your own Deoxys client, and query the Starknet blockchain as smoothly as possible.
 
 ## Let's start
 
@@ -22,50 +21,35 @@ We first need to make sure you have everything needed to complete this tutorial.
 
 
 
-### Build the chain
+### Run your own node
 
-We will spin up a CairoVM Rollup from the Madara Stack source code. 
-You could use docker images, but this way we keep the option to modify component behavior if you need to do so. 
-The Madara stack source code is a monorepo which can be found [here](https://github.com/keep-starknet-strange/madara)
+Fetch the code from the Official [Deoxys](https://github.com/KasarLabs/deoxys) repository in the folder of your choice.
 
 ```bash
-cd ~
-git clone git@github.com:keep-starknet-strange/madara.git
+cd <your-folder>
+git clone https://github.com/KasarLabs/deoxys
 ```
 
-Then let's build the chain in `release` mode
+Then let's build the dependencies in `release` mode
 
 ```bash
-cd madara
+cd deoxys
 cargo build --release
 ```
 
 **Single-Node Development Chain**
 
-This command will start the single-node development chain with non-persistent
-state:
+This command will start the Deoxys client which will begin the synchronization with the Starknet network automatically:
 
 ```bash
-./target/release/madara --dev
+cargo run --release -- --dev --sealing=manual 
 ```
 
-Purge the development chain's state:
+If everything works correctly, we can go to the next step and create our peer to peer network!
 
-```bash
-./target/release/madara purge-chain --dev
-```
+### Create your peer to peer network
 
-Start the development chain with detailed logging:
-
-```bash
-RUST_BACKTRACE=1 ./target/release/madara -ldebug --dev
-```
-
-If everything works correctly, we can go to the next step and create our own genesis state!
-
-### Create your chain specification
-
-First, run this command to create a plain chain spec
+{/* First, run this command to create a plain chain spec
 
 ```bash
 ./target/release/madara build-spec > ./infra/chain-sepcs/chain-spec-plain.json
@@ -127,7 +111,7 @@ Ooook, now your chain is finally running. It's time to deploy your own account!
 
 ### Make some transactions
 
-### 👽
+### 👽 */}
 
 </Steps>
 
