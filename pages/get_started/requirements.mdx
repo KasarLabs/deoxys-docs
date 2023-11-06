@@ -1,37 +1,58 @@
-# System requirements
+# System Requirements
 
-Deoxys is a Starknet full node client implementation based on Substrate and 
-powered by Rust. It unlocks the full potential of full nodes on Starknet.
+## Supported Operating Systems
 
-### Full nodes
+Deoxys is designed to work seamlessly on a variety of modern _64-bit_ operating systems. Our support encompasses but is not limited to:
 
-Full nodes track Starknet’s state as it evolves over time and allow users and developers to query and change this state via [Starknet’s JSON-RPC](https://github.com/starkware-libs/starknet-specs/blob/master/api/starknet_api_openrpc.json). An important thing to note - full nodes don't change the state themselves. Currently, they forward the requests to the sequencer and pull state updates from it to reach the latest block.
+- **Linux**
+	- Alpine (3.15 and newer)
+	- CentOS (Stream 8 and newer)
+	- Debian (10 and newer)
+	- Fedora (37 and newer)
+	- openSUSE (15.4 and newer)
+	- RHEL (8 and newer)
+	- SLES (15 and newer)
+	- Ubuntu (18.04 and newer)
+- **Windows**
+	- Windows 10 and newer
+	- Windows Server 2012 and newer
+- **macOS** (10.15 Catalina and newer)
 
-Right now on Starknet we have different full-node implementations:
+:::info
+Deoxys does not currently support the AArch64 (ARM64) architecture for Windows.
+:::
 
-- [Deoxys](https://github.com/eqlabs/pathfinder) - Rust/Substrate based
-- [Pathfinder](https://github.com/eqlabs/pathfinder) - Rust based
-- [Juno](https://github.com/nethermindeth/juno) - Golang based
-- [Papyrus](https://github.com/starkware-libs/papyrus) - Rust based
+## Hardware Requirements
 
-Full nodes are like guardians of the Starknet state, they track and store a record of it. Sequencers themselves have full nodes.
-### Substrate
+For optimal performance of Deoxys, the following hardware configurations are recommended:
 
-[Substrate](https://substrate.io/) is a flexible, open-source framework developed by Parity Technologies for creating robust blockchains. It offers essential infrastructure through its Substrate Core and a range of pre-built modules via the Substrate Runtime Module Library (SRML).
+| Network                 | Memory | CPU Cores |
+|-------------------------|:------:|:---------:|
+| **Primary Network**     | 16 GB  | 4         |
+| **Primary Archive**     | 128 GB | 8         |
+| **Test Network**        | 8 GB   | 2         |
+| **Test Archive**        | 8 GB   | 4         |
+| **Specialized Chains**  | 16 GB  | 2         |
+| **Alternate Networks**  | 8 GB   | 2         |
 
-By using Substrate, Deoxys is able to concentrate on building unique features of a StarkNet full node without having to create standard blockchain functions from the ground up. Substrate's modularity also allows easy network upgrades, changes, and the addition of new features. Furthermore, its extensibility ensures scalability and interoperability, both key aspects in the evolution of the Starknet ecosystem.
+### Disk Requirements
 
-### Rust
+A Deoxys full node requires at least 1 TB of fast disk storage, such as NVMe or a high-speed SSD, to function properly. **We recommend 2 TB** for reduced maintenance and greater peace of mind. For specific disk recommendations, consider referring to expert reviews and guides in the context of substrate-based networks.
 
-[Rust](https://www.rust-lang.org/) is a systems programming language that emphasizes safety, speed, and concurrency. It is known for its powerful type system, memory safety guarantees, and minimal runtime. Rust's design prevents many common programming errors, like null pointer dereferencing and data races, which makes it an ideal choice for building reliable, high-performance systems.
+#### Database Growth
 
-In the context of Deoxys, Rust provides a number of benefits:
+Upon a fresh synchronization with the primary blockchain network, Deoxys requires around 504 GB of disk space, and this requirement will increase as the blockchain expands. Post-sync, expect the database to grow by approximately 27 GB weekly. To manage this, periodic resyncing or pruning may be necessary. A larger disk reduces the frequency of this maintenance, providing a buffer for chain growth.
 
-    - **Memory Safety**: Rust's ownership model guarantees memory safety without needing a garbage collector, which can be a bottleneck in high-performance systems.
-    - **Concurrency**: Rust has first-class support for concurrent and distributed systems, making it perfect for a distributed, concurrent environment like a blockchain.
-    - **Interoperability**: Rust has excellent interoperability with other languages, which can be useful in a multi-language, open-source project.
-    - **Performance**: Rust is designed to perform nearly as well as C++, making it suitable for a high-throughput system like a blockchain network.
-    - **Community and Ecosystem**: Rust has a strong and growing community of developers, and its package ecosystem, Crates.io, provides a wealth of libraries that can help speed up the development process.
+#### Disk Speed
 
-Given these benefits, Rust is well-suited for implementing a Starknet full node. It allows Deoxys to achieve high performance and reliability, while its strong memory safety guarantees help ensure the node operates as expected. Moreover, Rust's advanced concurrency features enable Deoxys to efficiently process multiple transactions and requests concurrently, enhancing its ability to manage the Starknet state.
+For Deoxys nodes, disk speed is a critical performance factor. We recommend using disks with a minimum of 10,000 IOPS for read and write operations to avoid sync bottlenecks and ensure swift operation.
 
+#### Sync Modes and Disk Usage
+
+The sync mode selected for Deoxys can greatly affect disk usage:
+
+- **Archive Node:** This retains the entire blockchain history and requires substantial storage, which as of the latest update, means at least 14 TB, increasing by about 60 GB weekly.
+- **Pruned Node:** Deoxys, like Substrate, allows for older block information to be pruned to save space while still supporting the essential functionality of the network.
+- **Full Node:** A non-archive but complete node retains all necessary data for current operations but does not store the entirety of the chain's history.
+
+For further details, it's advisable to refer to the specific documentation regarding Deoxys' implementation of these modes.
