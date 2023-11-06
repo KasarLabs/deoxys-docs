@@ -1,0 +1,38 @@
+# Synchronization
+
+## There are three main synchronization modes
+
+* snap sync
+	* the fastest way to sync to the network (syncs to mainnet in \~3 hours)
+	* downloads only the latest state, headers, and optionally bodies and receipts
+* fast sync
+	* slower than snap sync
+	* useful on nethermind-only chains (like Gnosis), where snap sync is not available for now
+	* downloads only the latest state, headers, and optionally bodies and receipts
+* archive sync
+	* heavy historical sync verifying all the transactions and keeping all the historical state
+	* you can run it like this `./Nethermind.Runner --config mainnet_archive`
+
+| Sync Mode                                                  | Disk Space needed | Full current state | Full current and all historical states | Can sync a full archive node from this | Time to sync | Time to RPC |
+|------------------------------------------------------------|-------------------|--------------------|----------------------------------------|----------------------------------------|--------------|-------------|
+| archive                                                    | \~12TB            | YES                | YES                                    | YES                                    | \~3 weeks    | \~3 weeks   |
+| snap/fast sync with all bodies and receipts                | \~800GB           | YES                | NO                                     | YES                                    | \~20 hours   | \~20 hours  |
+| default snap/fast sync (with barriers set to support Eth2) | \~500GB           | YES                | NO                                     | NO                                     | \~11 hours   | \~11 hours  |
+| snap/fast sync without receipts                            | \~450GB           | YES                | NO                                     | YES                                    | \~12 hours   | \~12 hours  |
+| snap/fast sync without bodies and receipts                 | \~200GB           | YES                | NO                                     | NO                                     | \~9 hours    | \~9 hours   |
+
+## Snap Sync
+
+Snap sync allows a node to perform the initial synchronization and download of Ethereum’s state up to 10 times faster
+than using fast sync.
+
+#### How to Enable
+
+Snap sync is enabled by default for majority of networks. To make sure, check if`SnapSync` is set to `true` in the Sync
+module of your `.cfg` file
+
+```
+"Sync": {
+	"SnapSync": true
+}
+```

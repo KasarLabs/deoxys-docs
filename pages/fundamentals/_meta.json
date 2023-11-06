@@ -1,0 +1,10 @@
+{
+	"configuration": "Configuration",
+	"synchronization": "Synchronization",
+	"l1": "L1 verification",
+	"p2p": "P2P",
+	"security": "Security",
+	"logs": "Logs",
+	"database": "Database",
+	"pruning": "Pruning"
+}

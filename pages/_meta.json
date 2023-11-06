@@ -1,33 +1,9 @@
 {
-	"--": {
-		"type": "separator",
-		"title": "Introduction"
-	},
-	"index": "Deoxys",
-	"prerequisites": "Prerequisites",
-	"architecture": "Architecture",
-	"---": {
-		"type": "separator",
-		"title": "Setup"
-	},
-	"build": "Get started",
-	"network": "Configuration",
-	"starknet": "Starknet",
-	"contribute": "Contribute",
-	"----": {
-		"type": "separator",
-		"title": "Security"
-	},
-	"security": "FAQ",
-	"about": {
-		"title": "About",
-		"type": "page"
-	},
-	"contact": {
-		"title": "Contact ↗",
-		"type": "page",
-		"href": "https://t.me/kasarlabs",
-		"newWindow": true
-	},
-	"starknodes": "Starknodes"
-}
+	"index": "Introduction",
+	"get_started": "Get started",
+	"fundamentals": "Fundamentals",
+	"interacting": "Interacting with Deoxys",
+	"monitoring": "Monitoring",
+	"tools": "Tools",
+	"about": "About"
+}  

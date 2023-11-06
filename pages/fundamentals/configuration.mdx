@@ -1,0 +1,117 @@
+import { Callout } from 'nextra-theme-docs'
+
+# Configuration
+
+There are three primary ways to configure your Starknet full node:
+
+- [Command line options](#command-line-options)
+- [Environment variables](#environment-variables)
+- [Configuration file](#configuration-file)
+
+<Callout type="info" emoji="ℹ️">
+  Options specified via command line have the highest priority, followed by environment variables and then the configuration file. If an option is defined in multiple places, the one with the highest priority will take effect.
+</Callout>
+
+## Command line options
+
+To view a complete list of the available command line options for your Starknet full node client, you can run the following command:
+
+```bash
+starknet-full-node -h
+```
+
+Here is a brief overview of some foundational command line options, along with an extensive list of namespaced options available.
+
+:::warning
+Remember, command line options are sensitive to case and must be defined only once, unless explicitly stated that multiple definitions are allowed.
+:::
+
+### Basic options
+
+- **`-d, --base-path <path>`**
+
+  Specifies the base path for the Starknet database, with a default value that can be set or overridden.
+
+- **`-c, --config <file>`**
+
+  The path to the configuration file, or the name of a predefined configuration set up for specific network environments.
+
+- **`--chain <chain>`**
+
+  Determines the specific blockchain configuration to use.
+
+- **`--execution-strategy <strategy>`**
+
+  Defines the execution strategy for blocks and other non-consensus-critical operations.
+
+- **`--pruning <method>`**
+
+  Specifies the database pruning strategy.
+
+- **`--validator`**
+
+  Indicates if the node should operate in validator mode.
+
+- **`-v, --version`**
+
+  Shows the version information for the Starknet full node client.
+
+### Namespaced options
+
+:::info
+Namespaced options are categorized by their areas of concern within the client, such as networking, consensus, database, etc. They allow for granular control over the node's configuration.
+:::
+
+#### Networking
+
+- **`--port <port>`**
+
+  Sets the port for peer-to-peer networking.
+
+- **`--bootnodes <nodes>`**
+
+  Specifies the bootnodes to connect to when starting the node.
+
+#### Consensus
+
+- **`--sealer <type>`**
+
+  Defines the block sealing mechanism.
+
+- **`--gas-floor-target <value>`**
+
+  Sets the target for the minimum gas floor.
+
+#### Database
+
+- **`--db-cache <size>`**
+
+  Adjusts the size of the database cache.
+
+- **`--state-cache-size <size>`**
+
+  Controls the size of the state cache.
+
+#### Logging
+
+- **`--log <level>`**
+
+  Sets the verbosity level of logging.
+
+- **`--log-filters <filters>`**
+
+  Applies filters to the logging output based on module or level.
+
+## Environment variables
+
+Environment variables can be used to set the configuration options for the Starknet full node. They are generally prefixed with `STARKNET_` followed by the option name in uppercase. For example, `STARKNET_BASE_PATH` can be used to set the base path for the database.
+
+## Configuration file
+
+A configuration file in JSON, TOML, or YAML format can be provided to set various options for the node. This file allows for a structured and human-readable configuration and can be specified at startup with the `-c` command line option.
+
+:::tip
+To get the best performance and compatibility, carefully review the settings available and consult the Substrate and Starknet documentation for detailed configuration options and recommendations.
+:::
+
+Make sure to test any configuration in a controlled environment before deploying it to a production node.

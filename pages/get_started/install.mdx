@@ -1,0 +1,136 @@
+import { Steps } from 'nextra-theme-docs'
+import { Callout } from 'nextra-theme-docs'
+
+# Installing Deoxys
+
+In this section, we will guide you through the build and run process so that you can run your own Deoxys client, and query the Starknet blockchain as smoothly as possible.
+
+We want anyone to be able to launch a Deoxys full node, which is why we've divided this section into 3 difficulty levels:
+- [**High-level**](#high-level-installation-clicknplay) (from the Deoxys click'n'play app)
+- [**Mid-level**](#mid-level-installation-from-docker) (from Docker)
+- [**Low-level**](#low-level-installation-from-source) (from source directly).
+
+## High level installation (click'n'play)
+
+The easiest way to run Deoxys without any prior coding skills or terminal aknowledgments is the click'n'play solution from the Deoxys App.
+You just need to install it, fill out your parameters and enjoy!
+
+<Steps>
+
+### Install Deoxys App
+
+We first need to make sure you have everything needed to complete this tutorial.
+
+| OS  |  Version | Releases |
+|---|---|---|
+| Linux  | Deoxys App 1.0.0-nightly for Ubuntu (18.04 and later) | [Download](link) |
+| MacOs  | Deoxys Node Manager 1.0.0-nightly macOS (10.15 Catalina and later) | [Download](link) |
+| Windows  | Deoxys Node Manager 1.0.0-nightly Windows 10 and later  | [Download](link) |
+
+### Setup parameters
+
+### Run Deoxys
+
+Fetch the code from the Official [Deoxys](https://github.com/KasarLabs/deoxys) repository in the folder of your choice.
+
+### 👽
+
+</Steps>
+
+*Deoxys App is a project inspired by [Madara tsukuyomi](https://github.com/keep-starknet-strange/madara-tsukuyomi) from the Starknet exploration team.*
+
+## Mid level installation (from docker)
+
+
+
+<Steps>
+
+### Install dependencies
+
+
+| Dependency  |  Version | Linux | MacOs | Windows
+|---|---|---|---|---|
+| Docker  | rustc 1.69.0-nightly  | [Download](link) | [Download](link) | [Download](link) |
+
+
+### Get
+
+Fetch the code from the Official [Deoxys](https://github.com/KasarLabs/deoxys) repository in the folder of your choice.
+
+```bash
+cd <your-destination-path>
+git clone https://github.com/KasarLabs/deoxys
+```
+
+### Build
+
+Then let's build the dependencies in `release` mode
+
+```bash
+cd deoxys
+cargo build --release
+```
+
+### Run
+
+**Single-Node Development Chain**
+
+This command will start the Deoxys client which will begin the synchronization with the Starknet network automatically:
+
+```bash
+cargo run --release -- --dev --sealing=manual 
+```
+
+
+### 👽
+
+</Steps>
+
+## Low level installation (from source)
+
+<Steps>
+
+### Install dependencies
+
+We first need to make sure you have everything needed to complete this tutorial.
+
+| Dependency  |  Version | Installation |
+|---|---|---|
+| Rust  | rustc 1.69.0-nightly  | `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs \| sh` <br></br>`rustup toolchain install nightly` |
+
+
+### Get
+
+Fetch the code from the Official [Deoxys](https://github.com/KasarLabs/deoxys) repository in the folder of your choice.
+
+```bash
+cd <your-destination-path>
+git clone https://github.com/KasarLabs/deoxys
+```
+
+### Build
+
+Then let's build the dependencies in `release` mode
+
+```bash
+cd deoxys
+cargo build --release
+```
+
+### Run
+
+**Single-Node Development Chain**
+
+This command will start the Deoxys client which will begin the synchronization with the Starknet network automatically:
+
+```bash
+cargo run --release -- --dev --sealing=manual 
+```
+
+
+### 👽
+
+</Steps>
+
+Now that you know how to launch a Deoxys full node, you might want to set some parameters in order to customize it.
+Therefore, you can go to the following section: [Configuration](https://link)
