@@ -1,1 +1,342 @@
-# Methods
+## StarkNet Node JSON-RPC API Calls
+
+Each JSON-RPC call provides a different functionality of the StarkNet Node. The detailed information of each call can be expanded upon:
+
+### `starknet_specVersion`
+
+<details>
+<summary>Returns the version of the Starknet JSON-RPC specification being used.</summary>
+<br/>
+
+- **Params**: None
+- **Result**: Semver of Starknet's JSON-RPC spec being used (type: string)
+  
+</details>
+
+### `starknet_getBlockWithTxHashes`
+
+<details>
+<summary>Get block information with transaction hashes given the block id.</summary>
+<br/>
+
+- **Params**: 
+  - `block_id`: The hash of the requested block, or number (height) of the requested block, or a block tag (required)
+- **Result**: The resulting block information with transaction hashes
+- **Errors**:
+  - `BLOCK_NOT_FOUND`: If the specified block does not exist
+  
+</details>
+
+### `starknet_getBlockWithTxs`
+
+<details>
+<summary>Get block information with full transactions given the block id.</summary>
+<br/>
+
+- **Params**: 
+  - `block_id`: The hash of the requested block, or number (height) of the requested block, or a block tag (required)
+- **Result**: The resulting block information with full transactions
+- **Errors**:
+  - `BLOCK_NOT_FOUND`: If the specified block does not exist
+  
+</details>
+
+### `starknet_getStateUpdate`
+
+<details>
+<summary>Get the information about the result of executing the requested block.</summary>
+<br/>
+
+- **Params**: 
+  - `block_id`: The hash of the requested block, or number (height) of the requested block, or a block tag (required)
+- **Result**: The information about the state update of the requested block
+- **Errors**:
+  - `BLOCK_NOT_FOUND`: If the specified block does not exist
+  
+</details>
+
+### `starknet_getStorageAt`
+
+<details>
+<summary>Get the value of the storage at the given address and key.</summary>
+<br/>
+
+- **Params**: 
+  - `contract_address`: The address of the contract to read from (required)
+  - `key`: The key to the storage value for the given contract (required)
+  - `block_id`: The hash of the requested block, or number (height) of the requested block, or a block tag (required)
+- **Result**: The value at the given key for the given contract. Returns 0 if no value is found.
+- **Errors**:
+  - `CONTRACT_NOT_FOUND`: If the specified contract does not exist
+  - `BLOCK_NOT_FOUND`: If the specified block does not exist
+  
+</details>
+
+### `starknet_getTransactionStatus`
+
+<details>
+<summary>Gets the transaction status, potentially indicating if the transaction is still in the mempool or has been dropped.</summary>
+<br />
+
+- **Params**: 
+  - `transaction_hash`: The hash of the requested transaction (required)
+- **Result**: 
+  - `finality_status`: The finality status of the transaction
+  - `execution_status`: The execution status of the transaction
+- **Errors**:
+  - `TXN_HASH_NOT_FOUND`: If the transaction hash does not exist
+  
+</details>
+
+### `starknet_getTransactionByHash`
+
+<details>
+<summary>Retrieves the details and status of a submitted transaction.</summary>
+<br />
+
+- **Params**: 
+  - `transaction_hash`: The hash of the requested transaction (required)
+- **Result**: 
+  - `transaction`: The details of the transaction including the transaction hash
+- **Errors**:
+  - `TXN_HASH_NOT_FOUND`: If the transaction hash does not exist
+  
+</details>
+
+### `starknet_getTransactionByBlockIdAndIndex`
+
+<details>
+<summary>Obtains the details of a transaction by a specified block id and index within that block. If not found, returns null.</summary>
+<br />
+
+- **Params**: 
+  - `block_id`: The hash, number (height), or tag of the requested block (required)
+  - `index`: The index within the block to look for the transaction (required)
+- **Result**: 
+  - `transactionResult`: The details of the transaction if found
+- **Errors**:
+  - `BLOCK_NOT_FOUND`: If the block does not exist
+  - `INVALID_TXN_INDEX`: If the transaction index is invalid or does not exist in the block
+  
+</details>
+
+### `starknet_getTransactionReceipt`
+
+<details>
+<summary>Acquires the receipt of a transaction using its hash.</summary>
+<br />
+
+- **Params**: 
+  - `transaction_hash`: The hash of the requested transaction (required)
+- **Result**: 
+  - `result`: The transaction receipt, or pending transaction receipt if applicable
+- **Errors**:
+  - `TXN_HASH_NOT_FOUND`: If the transaction hash does not exist
+  
+</details>
+
+### `starknet_getClass`
+
+<details>
+<summary>Fetches the contract class definition within a given block associated with a specified hash.</summary>
+<br />
+
+- **Params**: 
+  - `block_id`: The hash, number (height), or tag of the requested block (required)
+  - `class_hash`: The hash of the requested contract class (required)
+- **Result**: 
+  - `result`: The contract class information, if available
+- **Errors**:
+  - `BLOCK_NOT_FOUND`: If the block does not exist
+  - `CLASS_HASH_NOT_FOUND`: If the contract class hash does not exist
+  
+</details>
+
+### `starknet_getClassHashAt`
+
+<details>
+<summary>Retrieves the class hash of a contract deployed at a specific address within a given block.</summary>
+<br />
+
+- **Params**: 
+  - `block_id`: The hash, number (height), or tag of the requested block (required)
+  - `contract_address`: The address of the contract (required)
+- **Result**: 
+  - `result`: The class hash of the specified contract
+- **Errors**:
+  - `BLOCK_NOT_FOUND`: If the block does not exist
+  - `CONTRACT_NOT_FOUND`: If the contract at the given address does not exist
+  
+</details>
+
+### `starknet_getClassAt`
+
+<details>
+<summary>Get the contract class definition in the given block at the given address.</summary>
+<br />
+
+- **Params**: 
+  - `block_id`: The hash of the requested block, or number (height) of the requested block, or a block tag (required)
+  - `contract_address`: The address of the contract whose class definition will be returned (required)
+- **Result**: 
+  - `result`: The contract class, which may be a deprecated contract class or the current contract class
+- **Errors**:
+  - `BLOCK_NOT_FOUND`: If the block does not exist
+  - `CONTRACT_NOT_FOUND`: If the contract at the given address does not exist
+
+</details>
+
+### `starknet_getBlockTransactionCount`
+
+<details>
+<summary>Get the number of transactions in a block given a block id.</summary>
+<br />
+
+- **Description**: Returns the number of transactions in the designated block.
+- **Params**: 
+  - `block_id`: The hash of the requested block, or number (height) of the requested block, or a block tag (required)
+- **Result**: 
+  - `result`: The number of transactions in the designated block
+- **Errors**:
+  - `BLOCK_NOT_FOUND`: If the block does not exist
+
+</details>
+
+### `starknet_call`
+
+<details>
+<summary>Call a StarkNet function without creating a StarkNet transaction.</summary>
+<br />
+
+- **Description**: Calls a function in a contract and returns the return value. Using this call will not create a transaction; hence, will not change the state.
+- **Params**: 
+  - `request`: The details of the function call (required)
+  - `block_id`: The hash of the requested block, or number (height) of the requested block, or a block tag, for the block referencing the state or call the transaction on (required)
+- **Result**: 
+  - `result`: The function's return value, as defined in the Cairo output
+- **Errors**:
+  - `CONTRACT_NOT_FOUND`: If the contract at the given address does not exist
+  - `CONTRACT_ERROR`: If there is an error with the contract during the call
+  - `BLOCK_NOT_FOUND`: If the block does not exist
+
+</details>
+
+### `starknet_estimateFee`
+
+<details>
+<summary>Estimate the fee for StarkNet transactions.</summary>
+<br />
+
+- **Description**: Estimates the resources required by transactions when applied on a given state.
+- **Params**: 
+  - `request`: The transaction to estimate, consisting of a sequence of transactions to estimate, running each transaction on the state resulting from applying all the previous ones (required)
+  - `block_id`: The hash of the requested block, or number (height) of the requested block, or a block tag, for the block referencing the state to call the transaction on (required)
+- **Result**: 
+  - `result`: The fee estimations, a sequence of fee estimations where the i'th estimate corresponds to the i'th transaction
+- **Errors**:
+  - `CONTRACT_NOT_FOUND`: If the contract at the given address does not exist
+  - `CONTRACT_ERROR`: If there is an error with the contract during the call
+  - `BLOCK_NOT_FOUND`: If the block does not exist
+
+</details>
+
+### `starknet_estimateMessageFee`
+
+<details>
+<summary>Estimate the L2 fee of a message sent on L1.</summary>
+<br />
+
+- **Params**: 
+  - `message`: The message's parameters (required)
+  - `block_id`: The hash of the requested block, or number (height) of the requested block, or a block tag, for the block referencing the state or call the transaction on (required)
+- **Result**: 
+  - `result`: The fee estimation
+- **Errors**:
+  - `CONTRACT_NOT_FOUND`: If the contract related to the message cannot be found
+  - `CONTRACT_ERROR`: If there is an error with the contract during fee estimation
+  - `BLOCK_NOT_FOUND`: If the block does not exist
+  
+</details>
+
+### `starknet_blockNumber`
+
+<details>
+<summary>Get the most recent accepted block number.</summary>
+<br />
+
+- **Result**: 
+  - `result`: The latest block number
+- **Errors**:
+  - `NO_BLOCKS`: If there are no blocks to reference
+  
+</details>
+
+### `starknet_blockHashAndNumber`
+
+<details>
+<summary>Get the most recent accepted block hash and number.</summary>
+<br />
+
+- **Result**: 
+  - `result`: The latest block hash and number
+- **Errors**:
+  - `NO_BLOCKS`: If there are no blocks to reference
+  
+</details>
+
+### `starknet_chainId`
+
+<details>
+<summary>Return the currently configured StarkNet chain id.</summary>
+<br />
+
+- **Result**: 
+  - `result`: The chain id this node is connected to
+  
+</details>
+
+### `starknet_syncing`
+
+<details>
+<summary>Returns an object about the sync status, or false if the node is not synching.</summary>
+<br />
+
+- **Result**: 
+  - `syncing`: The state of the synchronization, or false if the node is not synchronizing
+  
+</details>
+
+### `starknet_getEvents`
+
+<details>
+<summary>Returns all events matching the given filter.</summary>
+<br />
+
+- **Params**: 
+  - `filter`: The conditions used to filter the returned events (required)
+- **Result**: 
+  - `events`: All the event objects matching the filter
+- **Errors**:
+  - `PAGE_SIZE_TOO_BIG`: If the page size of the request is too large
+  - `INVALID_CONTINUATION_TOKEN`: If the continuation token provided is invalid
+  - `BLOCK_NOT_FOUND`: If the specified block does not exist
+  - `TOO_MANY_KEYS_IN_FILTER`: If there are too many keys in the filter
+  
+</details>
+
+### `starknet_getNonce`
+
+<details>
+<summary>Get the nonce associated with the given address in the given block.</summary>
+<br />
+
+- **Params**: 
+  - `block_id`: The hash of the requested block, or number (height) of the requested block, or a block tag (required)
+  - `contract_address`: The address of the contract whose nonce we're seeking (required)
+- **Result**: 
+  - `result`: The contract's nonce at the requested state
+- **Errors**:
+  - `BLOCK_NOT_FOUND`: If the block does not exist
+  - `CONTRACT_NOT_FOUND`: If the contract at the given address does not exist
+  
+</details>

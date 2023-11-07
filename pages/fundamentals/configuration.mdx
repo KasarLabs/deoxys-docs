@@ -1,117 +1,128 @@
+import { Steps } from 'nextra-theme-docs'
 import { Callout } from 'nextra-theme-docs'
 
-# Configuration
+# Starknet Full Node Configuration
 
-There are three primary ways to configure your Starknet full node:
+Configuring your Starknet full node properly ensures that it runs efficiently and connects correctly to the Starknet network. Configuration can be done through three main avenues:
 
-- [Command line options](#command-line-options)
-- [Environment variables](#environment-variables)
-- [Configuration file](#configuration-file)
+- Command-line arguments
+- Environment variables
+- Configuration files
+
+## Priority of Configuration
 
 <Callout type="info" emoji="ℹ️">
-  Options specified via command line have the highest priority, followed by environment variables and then the configuration file. If an option is defined in multiple places, the one with the highest priority will take effect.
+  Configuration priority is as follows: command-line arguments > environment variables > configuration files. When the same setting is configured in multiple places, the source with the highest priority takes effect.
 </Callout>
 
-## Command line options
+## Command-Line Options
 
-To view a complete list of the available command line options for your Starknet full node client, you can run the following command:
+For a comprehensive list of command-line options:
 
 ```bash
-starknet-full-node -h
+starknet-full-node --help
 ```
 
-Here is a brief overview of some foundational command line options, along with an extensive list of namespaced options available.
+Below are some essential command-line options and a categorized list of advanced configurations:
 
-:::warning
-Remember, command line options are sensitive to case and must be defined only once, unless explicitly stated that multiple definitions are allowed.
-:::
+### Basic Command-Line Options
 
-### Basic options
+- **`-d, --base-path <path>`**: Set the directory for Starknet data (e.g., databases, configurations).
+  
+- **`-c, --config <file>`**: Specify a configuration file.
 
-- **`-d, --base-path <path>`**
+- **`--chain <chain>`**: Select the blockchain configuration (e.g., mainnet, testnet).
 
-  Specifies the base path for the Starknet database, with a default value that can be set or overridden.
+- **`--execution-strategy <strategy>`**: Choose the execution strategy for transactions.
 
-- **`-c, --config <file>`**
+- **`--pruning <method>`**: Define the database pruning strategy to manage disk space.
 
-  The path to the configuration file, or the name of a predefined configuration set up for specific network environments.
+- **`--validator`**: Run the node in validator mode, if applicable.
 
-- **`--chain <chain>`**
+- **`-v, --version`**: Display the software version.
 
-  Determines the specific blockchain configuration to use.
+### Advanced Command-Line Options by Namespace
 
-- **`--execution-strategy <strategy>`**
+Toggle details for each namespace to view additional settings:
 
-  Defines the execution strategy for blocks and other non-consensus-critical operations.
+<details>
+<summary className="nd-details-heading">&nbsp;**Networking**</summary>
+<p>
 
-- **`--pruning <method>`**
+- **`--port <port>`**: Set the network listening port.
 
-  Specifies the database pruning strategy.
+- **`--bootnodes <nodes>`**: Define initial peers to connect with on startup.
 
-- **`--validator`**
+</p>
+</details>
 
-  Indicates if the node should operate in validator mode.
+<details>
+<summary className="nd-details-heading">&nbsp;**Consensus**</summary>
+<p>
 
-- **`-v, --version`**
+- **`--sealer <type>`**: Choose the block sealer type.
 
-  Shows the version information for the Starknet full node client.
+- **`--gas-floor-target <value>`**: Set a target for block gas limit.
 
-### Namespaced options
+</p>
+</details>
 
-:::info
-Namespaced options are categorized by their areas of concern within the client, such as networking, consensus, database, etc. They allow for granular control over the node's configuration.
-:::
+<details>
+<summary className="nd-details-heading">&nbsp;**Database**</summary>
+<p>
 
-#### Networking
+- **`--db-cache <size>`**: Customize the database cache size.
 
-- **`--port <port>`**
+- **`--state-cache-size <size>`**: Adjust the state cache size for efficiency.
 
-  Sets the port for peer-to-peer networking.
+</p>
+</details>
 
-- **`--bootnodes <nodes>`**
+<details>
+<summary className="nd-details-heading">&nbsp;**Logging**</summary>
+<p>
 
-  Specifies the bootnodes to connect to when starting the node.
+- **`--log <level>`**: Control the verbosity of logs.
 
-#### Consensus
+- **`--log-filters <filters>`**: Apply fine-grained filters to log output.
 
-- **`--sealer <type>`**
+</p>
+</details>
 
-  Defines the block sealing mechanism.
+## Environment Variables
 
-- **`--gas-floor-target <value>`**
+Set up your node's environment variables using the `STARKNET_` prefix. For example:
 
-  Sets the target for the minimum gas floor.
+- `STARKNET_BASE_PATH=/path/to/data`
+- `STARKNET_LOG=info`
 
-#### Database
+These variables allow you to adjust the node's configuration without using command-line arguments.
 
-- **`--db-cache <size>`**
+## Configuration File
 
-  Adjusts the size of the database cache.
+You can use a JSON, TOML, or YAML file to structure your configuration settings. Specify your configuration file on startup with the `-c` option. Here's a basic example in JSON format:
 
-- **`--state-cache-size <size>`**
+```json
+{
+  "base_path": "/path/to/data",
+  "chain": "mainnet",
+  "network": {
+    "port": 30303,
+    "bootnodes": ["node1.example.com", "node2.example.com"]
+  },
+  "database": {
+    "db_cache": 1024,
+    "state_cache_size": 128
+  },
+  "log": {
+    "level": "info",
+    "filters": "starknet=trace"
+  }
+}
+```
 
-  Controls the size of the state cache.
+<Callout type="tip" emoji="💡">
+  Review settings carefully for optimal performance and refer to Starknet's official documentation for detailed configuration guidelines.
+</Callout>
 
-#### Logging
-
-- **`--log <level>`**
-
-  Sets the verbosity level of logging.
-
-- **`--log-filters <filters>`**
-
-  Applies filters to the logging output based on module or level.
-
-## Environment variables
-
-Environment variables can be used to set the configuration options for the Starknet full node. They are generally prefixed with `STARKNET_` followed by the option name in uppercase. For example, `STARKNET_BASE_PATH` can be used to set the base path for the database.
-
-## Configuration file
-
-A configuration file in JSON, TOML, or YAML format can be provided to set various options for the node. This file allows for a structured and human-readable configuration and can be specified at startup with the `-c` command line option.
-
-:::tip
-To get the best performance and compatibility, carefully review the settings available and consult the Substrate and Starknet documentation for detailed configuration options and recommendations.
-:::
-
-Make sure to test any configuration in a controlled environment before deploying it to a production node.
+Always test your configuration in a non-production environment before rolling it out to a live node to prevent downtime and other potential issues.
