@@ -1,18 +1,23 @@
 import React from 'react'
-import { DocsThemeConfig } from 'nextra-theme-docs'
+import { DocsThemeConfig, useTheme } from 'nextra-theme-docs'
 import { useRouter } from 'next/router';
 
+const Logo = () => {
+	const { resolvedTheme } = useTheme(); // This hook is from next-themes
+  
+	const logoSrc = resolvedTheme === 'dark' ? 
+	  "https://github.com/KasarLabs/brand/blob/main/projects/deoxys/Full/GradientFullWhite.png?raw=true" : 
+	  "https://github.com/KasarLabs/brand/blob/main/projects/deoxys/Full/GradientFullBlack.png?raw=true";
+  
+	return (
+	  <span style={{ display: 'flex', alignItems: 'center' }}>
+		<img src={logoSrc} alt="Deoxys Logo" style={{ height: '50px' }} />
+	  </span>
+	);
+};
+
 const config: DocsThemeConfig = {
-	logo: (
-		<span style={{ display: 'flex', alignItems: 'center' }}> {/* This span becomes a flex container */}
-			<img 
-				src="https://github.com/KasarLabs/deoxys/raw/deoxys/prod/docs/images/deoxys.jpg" 
-				alt="Deoxys Logo" 
-				style={{ height: '50px', borderRadius: '10%' }} 
-			/>
-			<span style={{ marginLeft: '10px', fontSize: '1.5rem', fontWeight: 'bold' }}>Deoxys</span>
-		</span>
-	  ),
+	logo: <Logo />,
 	project: {
 		link: "https://github.com/kasarlabs/deoxys",
 	},
