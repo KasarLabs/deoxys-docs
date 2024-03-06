@@ -16,6 +16,20 @@ const Logo = () => {
 	);
 };
 
+const BigLogo = () => {
+	const { resolvedTheme } = useTheme(); // This hook is from next-themes
+  
+	const logoSrc = resolvedTheme === 'dark' ? 
+	  "https://github.com/KasarLabs/brand/blob/main/projects/deoxys/Full/GradientFullWhite.png?raw=true" : 
+	  "https://github.com/KasarLabs/brand/blob/main/projects/deoxys/Full/GradientFullBlack.png?raw=true";
+  
+	return (
+	  <span style={{ display: 'flex', alignItems: 'center' }}>
+		<img src={logoSrc} alt="Deoxys Logo" style={{ height: '175px' }} />
+	  </span>
+	);
+};
+
 const config: DocsThemeConfig = {
 	logo: <Logo />,
 	project: {
@@ -56,3 +70,4 @@ const config: DocsThemeConfig = {
 };
 
 export default config
+export { Logo, BigLogo };
