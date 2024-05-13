@@ -2,6 +2,10 @@
 
 Starknet is a layer 2 solution that inherits security from Ethereum, meaning that its state can be reconstructed using Ethereum's data. Specifically, the Sequencer responsible for constructing Starknet's state sends it to the SNOS (Starknet OS), which then sends the corresponding execution trace to the Prover. The state diff and the generated proof are then sent to the DA layer (in this case, Ethereum) making it possible to verify the integrity of the Starknet state via the Layer 1.
 
+<div align="center">
+  <img src="../static/img/starknet-infra.png" />
+</div>
+
 ## Verification methods
 
 Currently, there are primarily three methods for a node to keep track of the network’s state, and nodes can implement any of these methods:
@@ -18,10 +22,33 @@ Each type of node setup comes with its own set of hardware requirements and trus
 
 Nodes that verify state based on L1 proof validations require similar resources to Ethereum nodes, offering simplicity and mobility with the tradeoff of higher latency due to intermittent proof submissions, although plans to increase proof frequency aim to reduce this latency.
 
-### How does it work
+On Ethereum, there is currently a contract named [Starknet Core Contract](https://etherscan.io/address/0xc662c410C0ECf747543f5bA90660f6ABeBD9C8c4) written in Solidity and deployed by Starkware. This contract acts as a proxy for various contracts hosted on Layer 1. It periodically emits an event with a regular interval between 2 to 7 hours of latency:
+<br/>
+<div align="center">
+  <img src="../static/img/log-state-update.png" />
+</div>
 
-Sur Ethereum il y a actuellement un contract appelé [Starknet Core contract](https://etherscan.io/address/0xc662c410C0ECf747543f5bA90660f6ABeBD9C8c4) ecrit en solidity et deployé par Starkware qui sert de proxy pour les different contracts heberge sur la L1 servant 
+This event provides three pieces of information:
+- `stateBlockHash`: Corresponds to the last verified block hash on L1.
+- `stateBlockNumber`: Corresponds to the last verified block number on L1.
+- `stateRoot`: Corresponds to the state root at the height of the last verified block number on L1.
 
-## How does it work
+Deoxys then subscribes to this event and continuously monitors the updates to verify if the reported values match the data calculated during synchronization. If they do match, it confirms that the state is intact.
 
-*How does the l1 verifiaction work on Deoxys tuto*
+## Layer 1 Access
+
+As described above, Deoxys requires an L1 RPC key to continuously listen to Layer 1. This key can be obtained from a centralized RPC provider or a personal Ethereum RPC access. Below is a non-exhaustive list of Ethereum RPC providers and full node clients:
+
+| Provider | Website | Features |
+|----------|---------|----------|
+| Infura | [Infura](https://infura.io/) | Provides robust, reliable access to the Ethereum network for both development and production. |
+| Alchemy | [Alchemy](https://www.alchemy.com/) | Known for extensive developer tools and enhanced API capabilities, offering high data accuracy and powerful infrastructure. |
+| QuickNode | [QuickNode](https://www.quicknode.com/) | Offers high-speed blockchain infrastructure focusing on performance and scalability for Ethereum and other blockchains. |
+| Chainstack | [Chainstack](https://chainstack.com/) | Provides easy deployment of nodes and scalable access to Ethereum and other blockchain protocols. |
+| Ankr | [Ankr](https://www.ankr.com/) | Offers a distributed computing platform that enables cost-effective and quick node deployment across multiple chains. |
+| Moralis | [Moralis](https://moralis.io/) | Focuses on quick dApp development with automatic node handling, real-time data synchronization, and easy integration. |
+
+You just need to provide the RPC URL in the format http, https, ws, or wss as an argument, and Deoxys will take care of communicating with it. Here is an example tutorial on how to retrieve an L1 key via Alchemy:
+<br />
+
+<video id="video" src="https://www.tella.tv/66cb25a9-0e03-4e43-b04d-381166879771"></video>
