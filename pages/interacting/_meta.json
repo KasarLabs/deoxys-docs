@@ -1,4 +1,4 @@
 {
-	"server": "JSON-RPC server",
-	"methods": "JSON-RPC methods"
+	"server": "Server",
+	"methods": "Methods"
 }

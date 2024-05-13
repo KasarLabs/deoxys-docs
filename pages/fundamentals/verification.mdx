@@ -1,0 +1,27 @@
+# Verification
+
+Starknet is a layer 2 solution that inherits security from Ethereum, meaning that its state can be reconstructed using Ethereum's data. Specifically, the Sequencer responsible for constructing Starknet's state sends it to the SNOS (Starknet OS), which then sends the corresponding execution trace to the Prover. The state diff and the generated proof are then sent to the DA layer (in this case, Ethereum) making it possible to verify the integrity of the Starknet state via the Layer 1.
+
+## Verification methods
+
+Currently, there are primarily three methods for a node to keep track of the network’s state, and nodes can implement any of these methods:
+
+- **Replaying Old Transactions**: Similar to Ethereum or Bitcoin, a node can replay all transactions and re-execute them. While this method is accurate, it is not scalable unless you have a powerful machine capable of handling the load. If you can replay all transactions, you can become a sequencer.
+
+- **Relying on L2 Consensus**: Nodes can trust the sequencer to execute the network correctly. When the sequencer updates the state and adds a new block, nodes accept the update as accurate.
+
+- **Checking Proof Validation on L1**: Nodes can monitor the state of the network by observing L1 and ensuring that every time a proof is sent, they receive the updated state. This approach does not require trusting anyone and only necessitates keeping track of the latest valid transaction for Starknet.
+
+Each type of node setup comes with its own set of hardware requirements and trust assumptions. For Deoxys we decided to check the proof validation on the L1 as it is the fastest and less intensive way of verifying the state integrity.
+
+## Deoxys verification
+
+Nodes that verify state based on L1 proof validations require similar resources to Ethereum nodes, offering simplicity and mobility with the tradeoff of higher latency due to intermittent proof submissions, although plans to increase proof frequency aim to reduce this latency.
+
+### How does it work
+
+Sur Ethereum il y a actuellement un contract appelé [Starknet Core contract](https://etherscan.io/address/0xc662c410C0ECf747543f5bA90660f6ABeBD9C8c4) ecrit en solidity et deployé par Starkware qui sert de proxy pour les different contracts heberge sur la L1 servant 
+
+## How does it work
+
+*How does the l1 verifiaction work on Deoxys tuto*
