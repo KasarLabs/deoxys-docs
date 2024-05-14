@@ -12,11 +12,13 @@ In this section, we will guide you through the build and run process so that you
 
 We want anyone to be able to launch a Deoxys full node, which is why we've divided this section into 3 difficulty levels:
 - [**Low-level**](#low-level-installation-from-source) (from source directly)
-- [**Mid-level**](#mid-level-installation-from-docker) (from Docker or script)
+- [**Mid-level**](#mid-level-installation) (from Docker or script recomanded)
 - [**High-level**](#high-level-installation-clicknplay) (from the Deoxys click'n'play app)
 
 
-## Low level installation (from source)
+## Low level Installation
+
+## From source
 
 <Steps>
 ### Install dependencies
@@ -27,7 +29,6 @@ We first need to make sure you have everything needed to complete this tutorial.
 |---|---|---|
 | Rust  | rustc 1.69.0-nightly  | `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs \| sh` <br></br>`rustup toolchain install nightly` |
 | libssl-dev | Latest | `apt-get install -y libssl-dev` |
-| make | Latest | `apt-get install -y make` |
 | clang-11 | 11.0 | `apt-get install -y clang-11` |
 | g++ | Latest | `apt-get install -y g++` |
 | llvm | Latest | `apt-get install -y llvm` |
@@ -36,7 +37,6 @@ We first need to make sure you have everything needed to complete this tutorial.
 | pkg-config | Latest | `apt-get install -y pkg-config` |
 | libz-dev | Latest | `apt-get install -y libz-dev` |
 | zstd | Latest | `apt-get install -y zstd` |
-| git | Latest | `apt-get install -y git` |
 | build-essential | Latest | `apt-get install -y build-essential` |
 
 You can use this command to easily install all necessary dependencies:
@@ -44,7 +44,6 @@ You can use this command to easily install all necessary dependencies:
 ```bash
   sudo apt-get update && sudo apt-get install -y \
       libssl-dev \
-      make \
       clang-11 \
       g++ \
       llvm \
@@ -53,7 +52,6 @@ You can use this command to easily install all necessary dependencies:
       pkg-config \
       libz-dev \
       zstd \
-      git \
       build-essential
 ```
 
@@ -90,8 +88,6 @@ cargo build --profile=production
 
 ### Run Deoxys
 
-**Single-Node Development Chain**
-
 This command will start the Deoxys client with a basic set arguments which will begin the synchronization with the Starknet network automatically:
 
 ```bash
@@ -104,12 +100,15 @@ cargo run --release -- --dev --sealing=manual
 
 </Steps>
 
-## Mid level installation (from docker)
+## Mid level installation
+
+This is the recomanded way to easily install and run deoxys it only requires a terminal access. You can chose either to use [Docker](#using-docker) or a custom [Script](#using-a-script).
+
+## Using Docker
 
 <Steps>
 
 ### Install Docker
-
 
 {/* prettier-ignore */}
 {/* prettier-ignore */}
@@ -150,9 +149,10 @@ cargo run --release -- --dev --sealing=manual
 
 ### Run docker image
 
-Lorsque vous avez correctement installé docker vous pouvez a present lancer Deoxys via ses images disponibles ici: [deoxys-v0.1.0-nightly](https://link).
-Ceci est une configuration par defaut pour plus d'information sur les configuration possible, veuillez vous rendre dans la category [Configuration](../fundamentals/configuration)
-
+Once you have successfully installed Docker, you can now run Deoxys using the images available here: [deoxys-v0.1.0-nightly](https://link).
+<Callout type="info" emoji="ℹ️">
+  This is a default configuration. For more information on possible configurations, please visit the [Configuration](../fundamentals/configuration) section.
+</Callout>
 
 ```bash
 
@@ -164,9 +164,42 @@ Ceci est une configuration par defaut pour plus d'information sur les configurat
 
 ```
 
+<Callout type="info" emoji="ℹ️">
+  Now you can head up to the [Metrics](/) section to easily deploy a Grafana and Prometheus dashboard
+</Callout>
+
 </Steps>
 
-## High level installation (click'n'play)
+## Using a script
+
+<Steps>
+
+### Get and run script
+
+This is the fastest way to get a Deoxys up and running following your needs
+
+```bash
+
+```
+
+### Follow the menu 
+
+
+### Check logs
+
+```bash
+
+```
+
+<Callout type="info" emoji="ℹ️">
+  Now you can head up to the [Metrics](/) section to easily deploy a Grafana and Prometheus dashboard
+</Callout>
+
+</Steps>
+
+## High level installation
+
+## Click'n'play app
 
 The easiest way to run Deoxys without any prior coding skills or terminal aknowledgments is the click'n'play solution from the Deoxys App.
 You just need to install it, fill out your parameters and enjoy!

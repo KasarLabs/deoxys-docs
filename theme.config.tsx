@@ -1,10 +1,10 @@
 import React from 'react'
 import { DocsThemeConfig, useTheme } from 'nextra-theme-docs'
 import { useRouter } from 'next/router';
-import { FaTelegram, FaGithub, FaTwitter, FaMedium, FaMediumM } from 'react-icons/fa';
+import { FaTelegram, FaGithub, FaTwitter, FaMediumM } from 'react-icons/fa';
 
 const Logo = () => {
-	const { resolvedTheme } = useTheme(); // This hook is from next-themes
+	const { resolvedTheme } = useTheme();
   
 	const logoSrc = resolvedTheme === 'dark' ? 
 	  "https://github.com/KasarLabs/brand/blob/main/projects/deoxys/Full/GradientFullWhite.png?raw=true" : 
@@ -18,7 +18,7 @@ const Logo = () => {
 };
 
 const BigLogo = () => {
-	const { resolvedTheme } = useTheme(); // This hook is from next-themes
+	const { resolvedTheme } = useTheme();
   
 	const logoSrc = resolvedTheme === 'dark' ? 
 	  "https://github.com/KasarLabs/brand/blob/main/projects/deoxys/Full/GradientFullWhite.png?raw=true" : 
