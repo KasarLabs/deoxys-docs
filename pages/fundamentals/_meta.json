@@ -1,10 +1,9 @@
 {
 	"configuration": "Configuration",
 	"synchronization": "Synchronization",
-	"trie": "Merkle Trie",
-	"verification": "Verification",
 	"p2p": "P2P",
-	"logs": "Logs",
 	"database": "Database",
-	"pruning": "Pruning"
+	"trie": "State Root",
+	"verification": "Verification",
+	"logs": "Logs"
 }

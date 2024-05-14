@@ -35,19 +35,25 @@ Here are the recomanded options for a quick and simple configuration of your Deo
 
 - **`--name <NAME>`**: The human-readable name for this node. It's used as network node name
 
-- **`-d, --base-path <path>`**: Set the directory for Starknet data (dafault is `/tmp/deoxys`).
+- **`-d, --base-path <PATH>`**: Set the directory for Starknet data (dafault is `/tmp/deoxys`).
 
 - **`-n, --network <NETWORK>`**: The network type to connect to `main`, `test`, or `integration`
 
 - **`--l1-endpoint <URL>`**: Specify the Layer 1 endpoint the node will verify its state from.
 
-- **`--chain <chain>`**: Select the blockchain configuration you want to sync from (currently only `starknet` is supported by default).
+- **`--chain <CHAIN>`**: Select the blockchain configuration you want to sync from (currently only `starknet` is supported by default).
 
 - **`--rpc-port <PORT>`**: Specify JSON-RPC server TCP port.
 
 - **`--rpc-cors <ORIGINS>`**: Specify browser Origins allowed to access the HTTP & WS RPC servers.
 
 - **`--rpc-external`**: Listen to all RPC interfaces. Default is local.
+
+- **`--snap <BLOCK_NUMBER>`**: Start syncing from the closest snapshot available for the desired block (default is highest)
+
+<Callout type="info" emoji="ℹ️">
+  For more informations regarding synchronization configuration please refer to the [next section](/)
+</Callout>
 
 ### Advanced Command-Line Options by Namespace
 
@@ -138,6 +144,8 @@ Toggle details for each namespace to view additional settings:
 <p>
 <br />
 - **`-d, --base-path <PATH>`** [default: /tmp/deoxys] Specify custom base path
+<br />
+- **`--snap <BLOCK_NUMBER>`**: Start syncing from the closest snapshot available for the desired block (default is highest)
 <br />
 - **`--tmp`**: Run a temporary node. A temporary directory will be created to store the configuration and will be deleted at the end of the process. Note: the directory is random per process execution. This directory is used as base path which includes: database, node key and keystore. When `--dev` is given and no explicit `--base-path`, this option is implied.
 <br />
