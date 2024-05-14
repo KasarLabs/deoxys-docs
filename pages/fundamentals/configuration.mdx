@@ -31,19 +31,23 @@ Below are some essential command-line options and a categorized list of advanced
 
 ### Basic Command-Line Options
 
-- **`-d, --base-path <path>`**: Set the directory for Starknet data (e.g., databases, configurations).
-  
-- **`-c, --config <file>`**: Specify a configuration file.
+Here are the recomanded options for a quick and simple configuration of your Deoxys full node:
 
-- **`--chain <chain>`**: Select the blockchain configuration (e.g., mainnet, testnet).
+- **`--name <NAME>`**: The human-readable name for this node. It's used as network node name
 
-- **`--execution-strategy <strategy>`**: Choose the execution strategy for transactions.
+- **`-d, --base-path <path>`**: Set the directory for Starknet data (dafault is `/tmp/deoxys`).
 
-- **`--pruning <method>`**: Define the database pruning strategy to manage disk space.
+- **`-n, --network <NETWORK>`**: The network type to connect to `main`, `test`, or `integration`
 
-- **`--validator`**: Run the node in validator mode, if applicable.
+- **`--l1-endpoint <URL>`**: Specify the Layer 1 endpoint the node will verify its state from.
 
-- **`-v, --version`**: Display the software version.
+- **`--chain <chain>`**: Select the blockchain configuration you want to sync from (currently only `starknet` is supported by default).
+
+- **`--rpc-port <PORT>`**: Specify JSON-RPC server TCP port.
+
+- **`--rpc-cors <ORIGINS>`**: Specify browser Origins allowed to access the HTTP & WS RPC servers.
+
+- **`--rpc-external`**: Listen to all RPC interfaces. Default is local.
 
 ### Advanced Command-Line Options by Namespace
 
@@ -63,6 +67,9 @@ Toggle details for each namespace to view additional settings:
   - `integration`: The integration network
 
 <br />
+- **`--chain <chain>`**: Select the blockchain configuration you want to sync from (currently only `starknet` is supported by default).
+<br />
+
 - **`--port <PORT>`**: Set the network listening port.
 
 <br />
@@ -186,6 +193,8 @@ Toggle details for each namespace to view additional settings:
 - **`--prometheus-external`**: Expose Prometheus exporter on all interfaces. Default is local.
 <br />
 - **`--no-prometheus`**: Do not expose a Prometheus exporter endpoint. Prometheus metric endpoint is enabled by default.
+<br />
+- **`--tui`**: This will rebuild the node from scratch allowing you to deploy a terminal user interface.
 
 </p>
 </details>
