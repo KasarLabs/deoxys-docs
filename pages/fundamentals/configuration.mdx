@@ -1,5 +1,5 @@
-import { Steps } from 'nextra-theme-docs'
-import { Callout } from 'nextra-theme-docs'
+import { Steps } from "nextra-theme-docs";
+import { Callout } from "nextra-theme-docs";
 
 # Configuration
 
@@ -12,19 +12,22 @@ Configuring your Starknet client properly ensures that it answer your specific n
 ## Priority of Configuration
 
 <Callout type="info" emoji="ℹ️">
-  Configuration priority is as follows: command-line arguments > environment variables > configuration files. When the same setting is configured in multiple places, the source with the highest priority takes effect.
+  Configuration priority is as follows: command-line arguments > environment
+  variables > configuration files. When the same setting is configured in
+  multiple places, the source with the highest priority takes effect.
 </Callout>
 
 ## Command-Line Options
 
 For a comprehensive list of command-line options:
 
-```rust
+```bash
 cargo run -- --help
 ```
 
 <Callout type="warning" emoji="⚠️">
-  Some of the command-line options are from Substrate and not supported by Deoxys. Please reffer to the next section for the available commands.
+  Some of the command-line options are from Substrate and not supported by
+  Deoxys. Please reffer to the next section for the available commands.
 </Callout>
 
 Below are some essential command-line options and a categorized list of advanced configurations:
@@ -52,7 +55,8 @@ Here are the recomanded options for a quick and simple configuration of your Deo
 - **`--snap <BLOCK_NUMBER>`**: Start syncing from the closest snapshot available for the desired block (default is highest)
 
 <Callout type="info" emoji="ℹ️">
-  For more informations regarding synchronization configuration please refer to the [next section](/)
+  For more informations regarding synchronization configuration please refer to
+  the [next section](/)
 </Callout>
 
 ### Advanced Command-Line Options by Namespace
@@ -67,10 +71,11 @@ Toggle details for each namespace to view additional settings:
 - **`-n, --network <NETWORK>`**: The network type to connect to.
   - [default: integration]
 
-  Possible values:
-  - `main`: The main network (mainnet)
-  - `test`: The test network (testnet)
-  - `integration`: The integration network
+Possible values:
+
+- `main`: The main network (mainnet)
+- `test`: The test network (testnet)
+- `integration`: The integration network
 
 <br />
 - **`--chain <chain>`**: Select the blockchain configuration you want to sync from (currently only `starknet` is supported by default).
@@ -88,8 +93,7 @@ Toggle details for each namespace to view additional settings:
 - **`--sync-polling-interval <SYNC_POLLING_INTERVAL>`**: Polling interval, in seconds.
   - [default: 2]
 
-<br />
-- **`--no-sync-polling`**: Stop sync polling.
+<br />- **`--no-sync-polling`**: Stop sync polling.
 
 <br />
 - **`--n-blocks-to-sync <N_BLOCKS_TO_SYNC>`**: Number of blocks to sync.
@@ -114,30 +118,30 @@ Toggle details for each namespace to view additional settings:
   - `auto`: Acts as `safe` if RPC is served externally, e.g. when `--rpc-external` is passed, otherwise acts as `unsafe`.
   - [default: auto]
 
-  Possible values:
-  - `auto`: Expose every RPC method only when RPC is listening on `localhost`, otherwise serve only safe RPC methods.
-  - `safe`: Allow only a safe subset of RPC methods.
-  - `unsafe`: Expose every RPC method (even potentially unsafe ones).
-<br />
+Possible values:
+
+- `auto`: Expose every RPC method only when RPC is listening on `localhost`, otherwise serve only safe RPC methods.
+- `safe`: Allow only a safe subset of RPC methods.
+- `unsafe`: Expose every RPC method (even potentially unsafe ones).
+  <br />
 - **`--rpc-max-request-size <RPC_MAX_REQUEST_SIZE>`**: Set the maximum RPC request payload size for both HTTP and WS in megabytes.
   - [default: 15]
-<br />
+    <br />
 - **`--rpc-max-response-size <RPC_MAX_RESPONSE_SIZE>`**: Set the maximum RPC response payload size for both HTTP and WS in megabytes.
   - [default: 15]
-<br />
+    <br />
 - **`--rpc-max-subscriptions-per-connection <RPC_MAX_SUBSCRIPTIONS_PER_CONNECTION>`**: Set the maximum concurrent subscriptions per connection.
   - [default: 1024]
-<br />
+    <br />
 - **`--rpc-port <PORT>`**: Specify JSON-RPC server TCP port.
-<br />
+  <br />
 - **`--rpc-max-connections <COUNT>`**: Maximum number of RPC server connections.
   - [default: 100]
-<br />
+    <br />
 - **`--rpc-cors <ORIGINS>`**: Specify browser Origins allowed to access the HTTP & WS RPC servers. A comma-separated list of origins (protocol:domain or special `null` value). Value of `all` will disable origin validation. Default is to allow localhost origins. When running in --dev mode the default is to allow all origins.
 
 </p>
 </details>
-
 
 <details>
 <summary className="nd-details-heading">&nbsp;**Database**</summary>
@@ -182,8 +186,9 @@ Toggle details for each namespace to view additional settings:
 - **`--tracing-receiver <RECEIVER>`**: Receiver to process tracing messages.
   - [default: log]
 
-  Possible values:
-  - `log`: Output the tracing records using the log.
+Possible values:
+
+- `log`: Output the tracing records using the log.
 
 </p>
 </details>
@@ -206,7 +211,6 @@ Toggle details for each namespace to view additional settings:
 
 </p>
 </details>
-
 
 <details>
 <summary className="nd-details-heading">&nbsp;**P2P**</summary>
@@ -250,7 +254,8 @@ You can use a JSON, TOML, or YAML file to structure your configuration settings.
 ```
 
 <Callout type="tip" emoji="💡">
-  Review settings carefully for optimal performance and refer to Starknet's official documentation for detailed configuration guidelines.
+  Review settings carefully for optimal performance and refer to Starknet's
+  official documentation for detailed configuration guidelines.
 </Callout>
 
 Always test your configuration in a non-production environment before rolling it out to a live node to prevent downtime and other potential issues.

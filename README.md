@@ -18,6 +18,7 @@
 <a href="https://github.com/kasarlabs/deoxys">
 <img src="https://img.shields.io/github/stars/kasarlabs/deoxys?style=social"/>
 </a>
+
 </div>
 
 # 👽 Deoxys-docs: Starknet full node client documentation.

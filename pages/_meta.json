@@ -1,9 +1,9 @@
 {
-	"index": "Introduction",
-	"get_started": "Get started",
-	"fundamentals": "Fundamentals",
-	"interacting": "Interacting with Deoxys",
-	"monitoring": "Monitoring",
-	"tools": "Tools",
-	"about": "About"
-}  
+  "index": "Introduction",
+  "get_started": "Get started",
+  "fundamentals": "Fundamentals",
+  "interacting": "Interacting with Deoxys",
+  "monitoring": "Monitoring",
+  "tools": "Tools",
+  "about": "About"
+}

@@ -1,9 +1,9 @@
 {
-	"configuration": "Configuration",
-	"synchronization": "Synchronization",
-	"p2p": "P2P",
-	"database": "Database",
-	"trie": "State Root",
-	"verification": "Verification",
-	"logs": "Logs"
+  "configuration": "Configuration",
+  "synchronization": "Synchronization",
+  "p2p": "P2P",
+  "database": "Database",
+  "trie": "State Root",
+  "verification": "Verification",
+  "logs": "Logs"
 }
