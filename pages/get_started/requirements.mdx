@@ -1,47 +1,61 @@
+import { Steps } from 'nextra-theme-docs'
+import { Callout } from 'nextra-theme-docs'
+import { Cards, Card } from 'nextra/components'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLinux, faApple, faWindows } from '@fortawesome/free-brands-svg-icons';
+import { Tabs, Tab } from 'nextra/components'
+
 # System Requirements
 
-## Supported Operating Systems
+### Supported Operating Systems
 
 Deoxys is designed to work seamlessly on a variety of modern _64-bit_ operating systems. Our support encompasses but is not limited to:
 
-- **Linux**
-	- Alpine (3.15 and newer)
-	- CentOS (Stream 8 and newer)
-	- Debian (10 and newer)
-	- Fedora (37 and newer)
-	- openSUSE (15.4 and newer)
-	- RHEL (8 and newer)
-	- SLES (15 and newer)
-	- Ubuntu (18.04 and newer)
-- **Windows**
-	- Windows 10 and newer
-	- Windows Server 2012 and newer
-- **macOS** (10.15 Catalina and newer)
+{/* prettier-ignore */}
+<Tabs items={['Linux', 'MacOS', 'Windows']}>
+	<Tab>
+		**Linux**
+			- Alpine (3.15 and newer)
+			- CentOS (Stream 8 and newer)
+			- Debian (10 and newer)
+			- Fedora (37 and newer)
+			- openSUSE (15.4 and newer)
+			- RHEL (8 and newer)
+			- SLES (15 and newer)
+			- Ubuntu (18.04 and newer)
+	</Tab>
+	<Tab>
+		**MacOs**:
+		- 10.15 Catalina and newer
+	</Tab>
+	<Tab>
+		**Windows**
+			- Windows 10 and newer
+			- Windows Server 2012 and newer
+	</Tab>
+</Tabs>
 
-:::info
-Deoxys does not currently support the AArch64 (ARM64) architecture for Windows.
-:::
+<Callout type="info" emoji="ℹ️">
+	Deoxys does not currently support the AArch64 (ARM64) architecture for Windows.
+</Callout>
 
-## Hardware Requirements
+### Hardware Requirements
 
 For optimal performance of Deoxys, the following hardware configurations are recommended:
 
-| Network                 | Memory | CPU Cores |
-|-------------------------|:------:|:---------:|
-| **Primary Network**     | 16 GB  | 4         |
-| **Primary Archive**     | 128 GB | 8         |
-| **Test Network**        | 8 GB   | 2         |
-| **Test Archive**        | 8 GB   | 4         |
-| **Specialized Chains**  | 16 GB  | 2         |
-| **Alternate Networks**  | 8 GB   | 2         |
+| Network                 	| Memory | CPU Cores |
+|---------------------------|:------:|:---------:|
+| **Mainnet**     			| 16 GB  | 4         |
+| **Testnet (Sepolia)**     | 8 GB 	 | 4         |
+| **Appchains**        		| 8 GB   | 4         |
 
 ### Disk Requirements
 
-A Deoxys full node requires at least 1 TB of fast disk storage, such as NVMe or a high-speed SSD, to function properly. **We recommend 2 TB** for reduced maintenance and greater peace of mind. For specific disk recommendations, consider referring to expert reviews and guides in the context of substrate-based networks.
+A Deoxys full node requires at least **256 GB** of fast disk storage, such as NVMe or a high-speed SSD, to function properly. We recommend **512 GB** for reduced maintenance and greater peace of mind. For specific disk recommendations, consider referring to expert reviews and guides in the context of the Starknet network.
 
 #### Database Growth
 
-Upon a fresh synchronization with the primary blockchain network, Deoxys requires around 504 GB of disk space, and this requirement will increase as the blockchain expands. Post-sync, expect the database to grow by approximately 27 GB weekly. To manage this, periodic resyncing or pruning may be necessary. A larger disk reduces the frequency of this maintenance, providing a buffer for chain growth.
+Upon a fresh synchronization with Starknet mainnet, Deoxys requires around **256 GB** of disk space, and this requirement will increase as the blockchain expands. Post-sync, expect the database to grow by approximately **2 GB** weekly. To manage this, periodic resyncing or pruning may be necessary. A larger disk reduces the frequency of this maintenance, providing a buffer for chain growth.
 
 #### Disk Speed
 
@@ -51,8 +65,12 @@ For Deoxys nodes, disk speed is a critical performance factor. We recommend usin
 
 The sync mode selected for Deoxys can greatly affect disk usage:
 
-- **Archive Node:** This retains the entire blockchain history and requires substantial storage, which as of the latest update, means at least 14 TB, increasing by about 60 GB weekly.
-- **Pruned Node:** Deoxys, like Substrate, allows for older block information to be pruned to save space while still supporting the essential functionality of the network.
-- **Full Node:** A non-archive but complete node retains all necessary data for current operations but does not store the entirety of the chain's history.
+- **Archive Node:** This retains the entire blockchain history and requires substantial storage.
+- **Pruned Node:** Deoxys will allow for older block information to be pruned to save space while still supporting the essential functionality of the network.
+- **Full Node:** A non-archive but complete node retains all necessary data for current operations but does not store the entirety of the chain's history. This is basically an archive node without receipts.
 
 For further details, it's advisable to refer to the specific documentation regarding Deoxys' implementation of these modes.
+
+<Callout type="warning" emoji="⚠️">
+	Deoxys currently supports **Full Node** mode only 
+</Callout>

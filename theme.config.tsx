@@ -1,6 +1,7 @@
 import React from 'react'
 import { DocsThemeConfig, useTheme } from 'nextra-theme-docs'
 import { useRouter } from 'next/router';
+import { FaTelegram, FaGithub, FaTwitter, FaMedium, FaMediumM } from 'react-icons/fa';
 
 const Logo = () => {
 	const { resolvedTheme } = useTheme(); // This hook is from next-themes
@@ -30,13 +31,31 @@ const BigLogo = () => {
 	);
 };
 
+const HeaderIcons = () => {
+	return (
+	  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+		<a href="https://github.com/kasarlabs/deoxys" target="_blank" rel="noopener noreferrer">
+		  <FaGithub style={{ fontSize: '24px' }} />
+		</a>
+		<a href="https://t.me/kasarlabs" target="_blank" rel="noopener noreferrer">
+		  <FaTelegram style={{ fontSize: '24px' }} />
+		</a>
+		<a href="https://twitter.com/kasarlabs" target="_blank" rel="noopener noreferrer">
+		  <FaTwitter style={{ fontSize: '24px' }} />
+		</a>
+		<a href="https://medium.com/kasarlabs" target="_blank" rel="noopener noreferrer">
+		  <FaMediumM style={{ fontSize: '24px' }} />
+		</a>
+	  </div>
+	);
+};
+
+
 const config: DocsThemeConfig = {
 	logo: <Logo />,
-	project: {
-		link: "https://github.com/kasarlabs/deoxys",
-	},
 	chat: {
 		link: "https://t.me/kasarlabs",
+		icon: <HeaderIcons />,
 	},
 	docsRepositoryBase: "https://github.com/kasarLabs/deoxys-docs/tree/main",
 	footer: {
