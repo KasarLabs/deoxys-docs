@@ -30,33 +30,22 @@ We first need to make sure you have everything needed to complete this tutorial.
 
 | Dependency        | Version              | Installation                                                                                                  |
 | ----------------- | -------------------- | ------------------------------------------------------------------------------------------------------------- |
-| Rust              | rustc 1.69.0-nightly | `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs \| sh` <br></br>`rustup toolchain install nightly` |
-| libssl-dev        | Latest               | `apt-get install -y libssl-dev`                                                                               |
-| clang-11          | 11.0                 | `apt-get install -y clang-11`                                                                                 |
-| g++               | Latest               | `apt-get install -y g++`                                                                                      |
-| llvm              | Latest               | `apt-get install -y llvm`                                                                                     |
+| rust              | rustc 1.74.0-nightly | `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`                                              |
+| clang             | Latest               | `apt-get install -y clang`                                                                                    |
 | protobuf-compiler | Latest               | `apt-get install -y protobuf-compiler`                                                                        |
-| libasound2-dev    | Latest               | `apt-get install -y libasound2-dev`                                                                           |
-| pkg-config        | Latest               | `apt-get install -y pkg-config`                                                                               |
-| libz-dev          | Latest               | `apt-get install -y libz-dev`                                                                                 |
-| zstd              | Latest               | `apt-get install -y zstd`                                                                                     |
 | build-essential   | Latest               | `apt-get install -y build-essential`                                                                          |
 
 You can use this command to easily install all necessary dependencies:
 
 ```bash
-  sudo apt-get update && sudo apt-get install -y \
-      libssl-dev \
-      clang-11 \
-      g++ \
-      llvm \
-      protobuf-compiler \
-      libasound2-dev \
-      pkg-config \
-      libz-dev \
-      zstd \
-      build-essential
+sudo apt-get update && sudo apt-get install -y \
+  clang \
+  protobuf-compiler \
+  build-essential
 ```
+```bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s
+````
 
 ### Get code
 
@@ -74,7 +63,7 @@ Then let's build the dependencies. You can choose between 3 differents build mod
 - **Debug** (fastest build mode, but lower performances, for testing purpose only)
 
 ```bash
-cargo build --release
+cargo build
 ```
 
 - **Release** (the recomanded build mode with close to production performances)
@@ -91,16 +80,30 @@ cargo build --profile=production
 
 ### Run Deoxys
 
-This command will start the Deoxys client with a basic set arguments which will begin the synchronization with the Starknet network automatically:
+This command will start the Deoxys client with a basic set arguments which will begin the synchronization with Starknet mainnet automatically:
 
 ```bash
-cargo run --release -- --dev --sealing=manual
+cargo run --release \
+  --name "<your-node-name>" \
+  --base-path "/var/lib/deoxys" \
+  --network "main" \
+  --l1-endpoint "<your-l1-rpc-url>" \
+  --chain "starknet" \
+  --rpc-port "9944" \
+  --rpc-cors "*" \
+  --rpc-external \
+  --telemetry-url 'wss://starknodes.com/submit/ 0'
 ```
 
 <Callout type="info" emoji="ℹ️">
-  We now recomand you to head up to the [Configuration](/) section to custom
+  We recomand you to head up to the [Configuration](/) section to custom
   your node parameters
 </Callout>
+
+<Callout type="warning" emoji="⚠️">
+  If you don't have an L1 endpoint url we recomand you to head up to the [Verification](/) section to get one
+</Callout>
+
 
 </Steps>
 
