@@ -28,12 +28,12 @@ We want anyone to be able to launch a Deoxys full node, which is why we've divid
 
 We first need to make sure you have everything needed to complete this tutorial.
 
-| Dependency        | Version              | Installation                                                                                                  |
-| ----------------- | -------------------- | ------------------------------------------------------------------------------------------------------------- |
-| rust              | rustc 1.74.0-nightly | `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`                                              |
-| clang             | Latest               | `apt-get install -y clang`                                                                                    |
-| protobuf-compiler | Latest               | `apt-get install -y protobuf-compiler`                                                                        |
-| build-essential   | Latest               | `apt-get install -y build-essential`                                                                          |
+| Dependency        | Version              | Installation                                               |
+| ----------------- | -------------------- | ---------------------------------------------------------- | --- |
+| rust              | rustc 1.74.0-nightly | `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh` |
+| clang             | Latest               | `apt-get install -y clang`                                 |
+| protobuf-compiler | Latest               | `apt-get install -y protobuf-compiler`                     |
+| build-essential   | Latest               | `apt-get install -y build-essential`                       |
 
 You can use this command to easily install all necessary dependencies:
 
@@ -43,9 +43,10 @@ sudo apt-get update && sudo apt-get install -y \
   protobuf-compiler \
   build-essential
 ```
+
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s
-````
+```
 
 ### Get code
 
@@ -95,14 +96,14 @@ cargo run --release \
 ```
 
 <Callout type="info" emoji="ℹ️">
-  We recomand you to head up to the [Configuration](/) section to custom
-  your node parameters
+  We recomand you to head up to the [Configuration](/) section to custom your
+  node parameters
 </Callout>
 
 <Callout type="warning" emoji="⚠️">
-  If you don't have an L1 endpoint url we recomand you to head up to the [Verification](/) section to get one
+  If you don't have an L1 endpoint url we recomand you to head up to the
+  [Verification](/) section to get one
 </Callout>
-
 
 </Steps>
 
@@ -168,6 +169,7 @@ This is the recomanded way to easily install and run deoxys it only requires a t
 ### Run docker image
 
 Once you have successfully installed Docker, you can now run Deoxys using the images available here: [deoxys-v0.1.0-nightly](https://link).
+You can replace the `--rpc-port`, `--base-path` with your desired parameters.
 
 <Callout type="info" emoji="ℹ️">
   This is a default configuration. For more information on possible
@@ -175,9 +177,14 @@ Once you have successfully installed Docker, you can now run Deoxys using the im
   [Configuration](../fundamentals/configuration) section.
 </Callout>
 
+<Callout type="warning" emoji="⚠️">
+  Make sure to change the volume `-v` of your container if you change the
+  `--base-path`.
+</Callout>
+
 ```bash
-docker run -d \                                                                
-  --name deoxys  
+docker run -d \
+  --name deoxys
   -p 9944:9944 \
   -v /var/lib/deoxys:/var/lib/deoxys \
   deoxys:latest \
