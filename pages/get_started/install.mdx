@@ -16,7 +16,7 @@ In this section, we will guide you through the build and run process so that you
 We want anyone to be able to launch a Deoxys full node, which is why we've divided this section into 3 difficulty levels:
 
 - [**Low-level**](#low-level-installation-from-source) (from source directly)
-- [**Mid-level**](#mid-level-installation) (from Docker or script **recomanded**)
+- [**Mid-level**](#mid-level-installation) (from Docker or Script **recomanded**)
 - [**High-level**](#high-level-installation-clicknplay) (from the Deoxys click'n'play app)
 
 ## Low level Installation
@@ -28,12 +28,12 @@ We want anyone to be able to launch a Deoxys full node, which is why we've divid
 
 We first need to make sure you have everything needed to complete this tutorial.
 
-| Dependency        | Version              | Installation                                               |
-| ----------------- | -------------------- | ---------------------------------------------------------- | --- |
-| rust              | rustc 1.74.0-nightly | `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh` |
-| clang             | Latest               | `apt-get install -y clang`                                 |
-| protobuf-compiler | Latest               | `apt-get install -y protobuf-compiler`                     |
-| build-essential   | Latest               | `apt-get install -y build-essential`                       |
+| Dependency        | Version              | Installation                                                     |
+| ----------------- | -------------------- | ---------------------------------------------------------------- |
+| rust              | rustc 1.74.0-nightly | `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs sh`   |
+| clang             | Latest               | `apt-get install -y clang`                                       |
+| protobuf-compiler | Latest               | `apt-get install -y protobuf-compiler`                           |
+| build-essential   | Latest               | `apt-get install -y build-essential`                             |
 
 You can use this command to easily install all necessary dependencies:
 
@@ -100,7 +100,7 @@ cargo run --release \
   node parameters
 </Callout>
 
-<Callout type="warning" emoji="⚠️">
+<Callout type="info" emoji="ℹ️">
   If you don't have an L1 endpoint url we recomand you to head up to the
   [Verification](/) section to get one
 </Callout>
@@ -198,10 +198,71 @@ docker run -d \
   --rpc-external
 ```
 
+<Callout type="info" emoji="ℹ️">
+  If you don't have an L1 endpoint url we recomand you to head up to the
+  [Verification](/) section to get one
+</Callout>
+
 ### Check logs
 
 ```bash
 docker logs -f deoxys
+```
+
+<Callout type="info" emoji="ℹ️">
+  Now you can head up to the [Metrics](/) section to easily deploy a Grafana and
+  Prometheus dashboard
+</Callout>
+
+</Steps>
+
+## Using Docker Compose
+
+<Steps>
+
+### Prerequisites
+
+Ensure you have Docker and Docker Compose installed on your machine. You can follow the installation instructions for Docker in the previous section.
+
+### Prepare the Environment
+
+Ensure you have the necessary environment variable `ETHEREUM_API_URL` set. You can set this in your shell or in a `.env` file in the same directory as your `docker-compose.yml` file:
+
+```bash
+export ETHEREUM_API_URL="your-ethereum-api-url"
+```
+
+Or create a `.env` file:
+
+```
+ETHEREUM_API_URL=your-ethereum-api-url
+```
+
+<Callout type="warning" emoji="⚠️">
+  When running with `sudo`, environment variables set in the current session might not be carried over. You can pass the variable directly to sudo using the `-E` option to preserve the environment:
+</Callout>
+
+<Callout type="info" emoji="ℹ️">
+  If you don't have an L1 endpoint url we recomand you to head up to the
+  [Verification](/) section to get one
+</Callout>
+
+### Build and Run the Container
+
+Navigate to the cloned Deoxys repository containing your `docker-compose.yml` file and run the following command to build and start the Deoxys client:
+
+```bash
+docker-compose up -d
+```
+
+This command will build the Docker image and start the container in detached mode.
+
+### Check Logs
+
+You can view the logs of the running Deoxys service using the following command:
+
+```bash
+docker-compose logs -f deoxys
 ```
 
 <Callout type="info" emoji="ℹ️">

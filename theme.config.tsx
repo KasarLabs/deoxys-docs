@@ -72,7 +72,7 @@ const config: DocsThemeConfig = {
   logo: <Logo />,
   chat: {
     link: "https://t.me/kasarlabs",
-    icon: <HeaderIcons />,
+    icon: <FaGithub style={{ fontSize: "24px" }} />,
   },
   docsRepositoryBase: "https://github.com/kasarLabs/deoxys-docs/tree/main",
   footer: {
