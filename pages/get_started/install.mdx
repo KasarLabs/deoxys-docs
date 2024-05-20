@@ -16,7 +16,7 @@ In this section, we will guide you through the build and run process so that you
 We want anyone to be able to launch a Deoxys full node, which is why we've divided this section into 3 difficulty levels:
 
 - [**Low-level**](#low-level-installation-from-source) (from source directly)
-- [**Mid-level**](#mid-level-installation) (from Docker or script recomanded)
+- [**Mid-level**](#mid-level-installation) (from Docker or script **recomanded**)
 - [**High-level**](#high-level-installation-clicknplay) (from the Deoxys click'n'play app)
 
 ## Low level Installation
@@ -84,15 +84,14 @@ This command will start the Deoxys client with a basic set arguments which will 
 
 ```bash
 cargo run --release \
-  --name "<your-node-name>" \
-  --base-path "/var/lib/deoxys" \
-  --network "main" \
-  --l1-endpoint "<your-l1-rpc-url>" \
-  --chain "starknet" \
-  --rpc-port "9944" \
+  --name deoxys \
+  --base-path ../deoxys-db \
+  --network main \
+  --l1-endpoint ${ETHEREUM_API_URL} \
+  --chain starknet \
+  --rpc-port 9944 \
   --rpc-cors "*" \
-  --rpc-external \
-  --telemetry-url 'wss://starknodes.com/submit/ 0'
+  --rpc-external
 ```
 
 <Callout type="info" emoji="ℹ️">
@@ -177,13 +176,25 @@ Once you have successfully installed Docker, you can now run Deoxys using the im
 </Callout>
 
 ```bash
-
+docker run -d \                                                                
+  --name deoxys  
+  -p 9944:9944 \
+  -v /var/lib/deoxys:/var/lib/deoxys \
+  deoxys:latest \
+  --name deoxys \
+  --base-path /var/lib/deoxys \
+  --network main \
+  --l1-endpoint ${ETHEREUM_API_URL} \
+  --chain starknet \
+  --rpc-port 9944 \
+  --rpc-cors "*" \
+  --rpc-external
 ```
 
 ### Check logs
 
 ```bash
-
+docker logs -f deoxys
 ```
 
 <Callout type="info" emoji="ℹ️">
@@ -202,15 +213,19 @@ Once you have successfully installed Docker, you can now run Deoxys using the im
 This is the fastest way to get a Deoxys up and running following your needs
 
 ```bash
-
+curl -sSf https://raw.githubusercontent.com/KasarLabs/deoxys/main/scripts/launcher -o /tmp/launcher && chmod +x /tmp/launcher && /tmp/launcher
 ```
 
 ### Follow the menu
 
+une video
+
 ### Check logs
 
-```bash
+If you've decided to run your node in the background using `systemctl`, you may want to check your node logs using the following command:
 
+```bash
+sudo journalctl -u deoxys-node
 ```
 
 <Callout type="info" emoji="ℹ️">
