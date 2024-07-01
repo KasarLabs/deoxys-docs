@@ -9,15 +9,15 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { Tabs, Tab } from "nextra/components";
 
-# Installing Deoxys
+# Installing Madara
 
-In this section, we will guide you through the build and run process so that you can run your own Deoxys client, and query the Starknet blockchain as smoothly as possible.
+In this section, we will guide you through the build and run process so that you can run your own Madara client, and query the Starknet blockchain as smoothly as possible.
 
-We want anyone to be able to launch a Deoxys full node, which is why we've divided this section into 3 difficulty levels:
+We want anyone to be able to launch a Madara full node, which is why we've divided this section into 3 difficulty levels:
 
 - [**Low-level**](#low-level-installation-from-source) (from source directly)
-- [**Mid-level**](#mid-level-installation) (from Docker or Script **recomanded**)
-- [**High-level**](#high-level-installation-clicknplay) (from the Deoxys click'n'play app)
+- [**Mid-level**](#mid-level-installation) (from Docker **recomanded**)
+- [**High-level**](#high-level-installation-clicknplay) (Coming soon)
 
 ## Low level Installation
 
@@ -31,18 +31,8 @@ We first need to make sure you have everything needed to complete this tutorial.
 | Dependency        | Version              | Installation                                                     |
 | ----------------- | -------------------- | ---------------------------------------------------------------- |
 | rust              | rustc 1.74.0-nightly | `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs sh`   |
-| clang             | Latest               | `apt-get install -y clang`                                       |
-| protobuf-compiler | Latest               | `apt-get install -y protobuf-compiler`                           |
-| build-essential   | Latest               | `apt-get install -y build-essential`                             |
 
 You can use this command to easily install all necessary dependencies:
-
-```bash
-sudo apt-get update && sudo apt-get install -y \
-  clang \
-  protobuf-compiler \
-  build-essential
-```
 
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s
@@ -50,11 +40,11 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s
 
 ### Get code
 
-Fetch the code from the Official [Deoxys](https://github.com/KasarLabs/deoxys) repository in the folder of your choice.
+Fetch the code from the Official [Madara](https://github.com/keep-starknet-strange/madara) repository in the folder of your choice.
 
 ```bash
 cd <your-destination-path>
-git clone https://github.com/KasarLabs/deoxys .
+git clone https://github.com/keep-starknet-strange/madara .
 ```
 
 ### Build program
@@ -67,32 +57,22 @@ Then let's build the dependencies. You can choose between 3 differents build mod
 cargo build
 ```
 
-- **Release** (the recomanded build mode with close to production performances)
+- **Release** (the recomanded build mode with production performances)
 
 ```bash
 cargo build --release
 ```
 
-- **Production** (The slowest build mode, recomanded for better performances)
+### Run Madara
 
-```bash
-cargo build --profile=production
-```
-
-### Run Deoxys
-
-This command will start the Deoxys client with a basic set arguments which will begin the synchronization with Starknet mainnet automatically:
+This command will start the Madara client with a basic set arguments which will begin the synchronization with Starknet mainnet automatically:
 
 ```bash
 cargo run --release \
-  --name deoxys \
-  --base-path ../deoxys-db \
+  --name Madara \
+  --base-path /var/lib/madara \
   --network main \
-  --l1-endpoint ${ETHEREUM_API_URL} \
-  --chain starknet \
-  --rpc-port 9944 \
-  --rpc-cors "*" \
-  --rpc-external
+  --l1-endpoint ${ETHEREUM_API_URL}
 ```
 
 <Callout type="info" emoji="ℹ️">
@@ -109,7 +89,7 @@ cargo run --release \
 
 ## Mid level installation
 
-This is the recomanded way to easily install and run deoxys it only requires a terminal access. You can chose either to use [Docker](#using-docker) or a custom [Script](#using-a-script).
+This is the recomanded way to easily install and run Madara it only requires a terminal access.
 
 ## Using Docker
 
@@ -168,7 +148,7 @@ This is the recomanded way to easily install and run deoxys it only requires a t
 
 ### Run docker image
 
-Once you have successfully installed Docker, you can now run Deoxys using the images available here: [deoxys-v0.1.0-nightly](https://link).
+Once you have successfully installed Docker, you can now run Madara using the images available here: [Madara-v0.1.0-nightly](https://link).
 You can replace the `--rpc-port`, `--base-path` with your desired parameters.
 
 <Callout type="info" emoji="ℹ️">
@@ -184,18 +164,13 @@ You can replace the `--rpc-port`, `--base-path` with your desired parameters.
 
 ```bash
 docker run -d \
-  --name deoxys
+  --name Madara
   -p 9944:9944 \
-  -v /var/lib/deoxys:/var/lib/deoxys \
-  deoxys:latest \
-  --name deoxys \
-  --base-path /var/lib/deoxys \
+  -v /var/lib/madara:/var/lib/madara \
+  madara:latest \
+  --base-path /var/lib/Madara \
   --network main \
-  --l1-endpoint ${ETHEREUM_API_URL} \
-  --chain starknet \
-  --rpc-port 9944 \
-  --rpc-cors "*" \
-  --rpc-external
+  --l1-endpoint ${ETHEREUM_API_URL}
 ```
 
 <Callout type="info" emoji="ℹ️">
@@ -206,7 +181,7 @@ docker run -d \
 ### Check logs
 
 ```bash
-docker logs -f deoxys
+docker logs -f madara
 ```
 
 <Callout type="info" emoji="ℹ️">
@@ -249,7 +224,7 @@ ETHEREUM_API_URL=your-ethereum-api-url
 
 ### Build and Run the Container
 
-Navigate to the cloned Deoxys repository containing your `docker-compose.yml` file and run the following command to build and start the Deoxys client:
+Navigate to the cloned Madara repository containing your `docker-compose.yml` file and run the following command to build and start the Madara client:
 
 ```bash
 docker-compose up -d
@@ -259,10 +234,10 @@ This command will build the Docker image and start the container in detached mod
 
 ### Check Logs
 
-You can view the logs of the running Deoxys service using the following command:
+You can view the logs of the running Madara service using the following command:
 
 ```bash
-docker-compose logs -f deoxys
+docker-compose logs -f Madara
 ```
 
 <Callout type="info" emoji="ℹ️">
@@ -272,137 +247,5 @@ docker-compose logs -f deoxys
 
 </Steps>
 
-## Using a script
-
-<Steps>
-
-### Get and run script
-
-This is the fastest way to get a Deoxys up and running following your needs
-
-```bash
-curl -sSf https://raw.githubusercontent.com/KasarLabs/deoxys/main/scripts/launcher -o /tmp/launcher && chmod +x /tmp/launcher && /tmp/launcher
-```
-
-### Follow the menu
-
-une video
-
-### Check logs
-
-If you've decided to run your node in the background using `systemctl`, you may want to check your node logs using the following command:
-
-```bash
-sudo journalctl -u deoxys-node
-```
-
-<Callout type="info" emoji="ℹ️">
-  Now you can head up to the [Metrics](/) section to easily deploy a Grafana and
-  Prometheus dashboard
-</Callout>
-
-</Steps>
-
-## High level installation
-
-## Click'n'play app
-
-The easiest way to run Deoxys without any prior coding skills or terminal aknowledgments is the click'n'play solution from the Deoxys App.
-You just need to install it, fill out your parameters and enjoy!
-
-<Steps>
-
-### Install app
-
-First you'll need to download the Deoxys app for your operating system
-
-<Cards>
-  <Card
-    icon={<FontAwesomeIcon icon={faLinux} />}
-    title="Download"
-    description="Deoxys App 1.0.0-nightly for Ubuntu (18.04 and later)"
-    href="your-download-link-for-linux"
-  />
-  <Card
-    icon={<FontAwesomeIcon icon={faApple} />}
-    title="Download"
-    description="Deoxys Node Manager 1.0.0-nightly macOS (10.15 Catalina and later)"
-    href="your-download-link-for-macos"
-  />
-  <Card
-    icon={<FontAwesomeIcon icon={faWindows} />}
-    title="Download"
-    description="Deoxys Node Manager 1.0.0-nightly Windows 10 and later"
-    href="your-download-link-for-windows"
-  />
-</Cards>
-
-<br />
-<br />
-
-<div style={{ display: "flex", justifyContent: "center" }}>
-  <img
-    src="../static/img/main-app.png"
-    height="500"
-    width="500"
-    style={{ borderRadius: "10px" }}
-  />
-</div>
-
-### Launch it
-
-Pour lancer la Deoxys App telecharge precedament il vous suffit de suivre les etapes suivantes selon votre operating system:
-
-{/* prettier-ignore */}
-<Tabs items={['MacOs', 'Linux', 'Windows']}>
-  <Tab>**MacOs**: Fast, disk space efficient package manager.</Tab>
-  <Tab>**Linux** is a package manager for the JavaScript programming language.</Tab>
-  <Tab>**Windows** is a software packaging system.</Tab>
-</Tabs>
-
-### Setup parameters
-
-Vous devrez a present mettre en place les parametre necessaire afin de run votre noeud comme bon vous semble.
-Pour plus d'information sur les parametres possible veuillez vous rendre dans la category [Configuration](../fundamentals/configuration)
-
-<Callout type="warning" emoji="⚠">
-  Parmis ces parametre il vous faudra obligatoirement un L1 endpoint access url
-  que vous pourrez simplement obtenir en suivant le tutoriel present dans la
-  categorie [L1 verification](../fundamentals/l1)
-</Callout>
-
-<br />
-<br />
-
-<div style={{ display: "flex", justifyContent: "center" }}>
-  <img
-    src="../static/img/config-app.png"
-    height="500"
-    width="500"
-    style={{ borderRadius: "10px" }}
-  />
-</div>
-
-### Run Deoxys
-
-Lorsque vos parametre sont configure correctement il vous suffit a present de clicker sur `Launch Deoxys` et d'enjoy!
-Pour plus d'information sur la Deoxys App veuillez vous rendre dans la categorie [Tsukuyomi](../tools/tsukuyomi)
-
-<br />
-<br />
-
-<div style={{ display: "flex", justifyContent: "center" }}>
-  <img
-    src="../static/img/run-app.png"
-    height="500"
-    width="500"
-    style={{ borderRadius: "10px" }}
-  />
-</div>
-
-</Steps>
-
-_Deoxys App is a project inspired by [Madara tsukuyomi](https://github.com/keep-starknet-strange/madara-tsukuyomi) from the Starknet exploration team._
-
-Now that you know how to launch a Deoxys full node, you might want to set some parameters in order to customize it.
+Now that you know how to launch a Madara full node, you might want to set some parameters in order to customize it.
 Therefore, you can go to the following section: [Configuration](https://link)

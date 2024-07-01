@@ -27,7 +27,7 @@ sudo docker logs <container_name>
 When running your node in a Docker container, you can configure Rust logging using the `RUST_LOG` environment variable. For debugging purposes, set it when you start the container:
 
 ```bash
-sudo docker run --name deoxys [...] -e RUST_LOG=<log_level> kasar/deoxys:latest
+sudo docker run --name madara [...] -e RUST_LOG=<log_level> kss/madara:latest
 ```
 
 This command allows you to view the logs in real-time and obtain detailed information about your node's operation.
@@ -52,4 +52,4 @@ warn
 error
 ```
 
-By following these instructions, you should be able to configure and manage the logs of your Deoxys node effectively.
+By following these instructions, you should be able to configure and manage the logs of your Madara node effectively.

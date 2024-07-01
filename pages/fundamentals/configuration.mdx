@@ -25,20 +25,15 @@ For a comprehensive list of command-line options:
 cargo run -- --help
 ```
 
-<Callout type="warning" emoji="⚠️">
-  Some of the command-line options are from Substrate and not supported by
-  Deoxys. Please reffer to the next section for the available commands.
-</Callout>
-
 Below are some essential command-line options and a categorized list of advanced configurations:
 
 ### Basic Command-Line Options
 
-Here are the recomanded options for a quick and simple configuration of your Deoxys full node:
+Here are the recomanded options for a quick and simple configuration of your Madara full node:
 
 - **`--name <NAME>`**: The human-readable name for this node. It's used as network node name
 
-- **`-d, --base-path <PATH>`**: Set the directory for Starknet data (dafault is `/tmp/deoxys`).
+- **`-d, --base-path <PATH>`**: Set the directory for Starknet data (dafault is `/tmp/madara`).
 
 - **`-n, --network <NETWORK>`**: The network type to connect to `main`, `test`, or `integration`
 
@@ -76,12 +71,6 @@ Possible values:
 - `main`: The main network (mainnet)
 - `test`: The test network (testnet)
 - `integration`: The integration network
-
-<br />
-- **`--chain <chain>`**: Select the blockchain configuration you want to sync from (currently only `starknet` is supported by default).
-<br />
-
-- **`--port <PORT>`**: Set the network listening port.
 
 <br />
 - **`--l1-endpoint <URL>`**: Specify the Layer 1 endpoint the node will verify its state from.
@@ -147,18 +136,11 @@ Possible values:
 <summary className="nd-details-heading">&nbsp;**Database**</summary>
 <p>
 <br />
-- **`-d, --base-path <PATH>`** [default: /tmp/deoxys] Specify custom base path
+- **`-d, --base-path <PATH>`** [default: /tmp/madara] Specify custom base path
 <br />
 - **`--snap <BLOCK_NUMBER>`**: Start syncing from the closest snapshot available for the desired block (default is highest)
 <br />
 - **`--tmp`**: Run a temporary node. A temporary directory will be created to store the configuration and will be deleted at the end of the process. Note: the directory is random per process execution. This directory is used as base path which includes: database, node key and keystore. When `--dev` is given and no explicit `--base-path`, this option is implied.
-<br />
-- **`--cache`**: When enabled, more information about the blocks and their transactions is cached and stored in the database. This may improve response times for RPCs that require that information, but it also increases the memory footprint of the node.
-<br />
-- **`--db-cache <MiB>`**: Limit the memory the database cache can use.
-<br />
-- **`--trie-cache-size <Bytes>`**: Specify the state cache size. Providing `0` will disable the cache.
-  - [default: 67108864]
 <br />
 - **`--backup-every-n-blocks <BACKUP_EVERY_N_BLOCKS>`**: Specify the number of blocks after which a backup should be created.
 <br />
@@ -175,7 +157,7 @@ Possible values:
 <br />
 - **`--telemetry-url <URL VERBOSITY>`**: The URL of the telemetry server to connect to. This flag can be passed multiple times as a means to specify multiple telemetry endpoints. Verbosity levels range from 0-9, with 0 denoting the least verbosity. Expected format is 'URL VERBOSITY', e.g. `--telemetry-url 'wss://foo/bar 0'`.
 <br />
-- **`--no-telemetry`**: Disable connecting to the Substrate telemetry server. Telemetry is on by default on global chains.
+- **`--no-telemetry`**: Disable connecting to the telemetry server. Telemetry is on by default on global chains.
 <br />
 - **`--prometheus-port <PORT>`**: Specify Prometheus exporter TCP Port.
 <br />

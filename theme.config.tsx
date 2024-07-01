@@ -8,12 +8,12 @@ const Logo = () => {
 
   const logoSrc =
     resolvedTheme === "dark"
-      ? "https://github.com/KasarLabs/brand/blob/main/projects/deoxys/Full/GradientFullWhite.png?raw=true"
-      : "https://github.com/KasarLabs/brand/blob/main/projects/deoxys/Full/GradientFullBlack.png?raw=true";
+      ? "https://github.com/keep-starknet-strange/madara-branding/blob/main/logo/PNGs/Madara%20logomark%20-%20White%20-%20Duotone.png?raw=true"
+      : "https://github.com/keep-starknet-strange/madara-branding/blob/main/logo/PNGs/Madara%20logomark%20-%20Black%20-%20Duotone.png?raw=true";
 
   return (
     <span style={{ display: "flex", alignItems: "center" }}>
-      <img src={logoSrc} alt="Deoxys Logo" style={{ height: "50px" }} />
+      <img src={logoSrc} alt="Madara Logo" style={{ height: "50px" }} />
     </span>
   );
 };
@@ -23,12 +23,12 @@ const BigLogo = () => {
 
   const logoSrc =
     resolvedTheme === "dark"
-      ? "https://github.com/KasarLabs/brand/blob/main/projects/deoxys/Full/GradientFullWhite.png?raw=true"
-      : "https://github.com/KasarLabs/brand/blob/main/projects/deoxys/Full/GradientFullBlack.png?raw=true";
+      ? "https://github.com/keep-starknet-strange/madara-branding/blob/main/logo/PNGs/Madara%20logomark%20-%20White%20-%20Duotone.png?raw=true"
+      : "https://github.com/keep-starknet-strange/madara-branding/blob/main/logo/PNGs/Madara%20logomark%20-%20Black%20-%20Duotone.png?raw=true";
 
   return (
     <span style={{ display: "flex", alignItems: "center" }}>
-      <img src={logoSrc} alt="Deoxys Logo" style={{ height: "175px" }} />
+      <img src={logoSrc} alt="Madara Logo" style={{ height: "175px" }} />
     </span>
   );
 };
@@ -37,28 +37,28 @@ const HeaderIcons = () => {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
       <a
-        href="https://github.com/kasarlabs/deoxys"
+        href="https://github.com/keep-starknet-strange/madara"
         target="_blank"
         rel="noopener noreferrer"
       >
         <FaGithub style={{ fontSize: "24px" }} />
       </a>
       <a
-        href="https://t.me/kasarlabs"
+        href="https://t.me/madarastarknet"
         target="_blank"
         rel="noopener noreferrer"
       >
         <FaTelegram style={{ fontSize: "24px" }} />
       </a>
       <a
-        href="https://twitter.com/kasarlabs"
+        href="https://twitter.com/madarastarknet"
         target="_blank"
         rel="noopener noreferrer"
       >
         <FaTwitter style={{ fontSize: "24px" }} />
       </a>
       <a
-        href="https://medium.com/kasarlabs"
+        href="https://medium.com/madarastarknet"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -71,15 +71,15 @@ const HeaderIcons = () => {
 const config: DocsThemeConfig = {
   logo: <Logo />,
   chat: {
-    link: "https://t.me/kasarlabs",
+    link: "https://github.com/keep-starknet-strange/madara",
     icon: <FaGithub style={{ fontSize: "24px" }} />,
   },
-  docsRepositoryBase: "https://github.com/kasarLabs/deoxys-docs/tree/main",
+  docsRepositoryBase: "https://github.com/keep-starknet-strange/madara-docs/tree/main",
   footer: {
-    text: <span>MIT {new Date().getFullYear()} © Deoxys - Kasar Labs</span>,
+    text: <span>MIT {new Date().getFullYear()} © Madara - Keep Starknet Strange</span>,
   },
   editLink: {
-    text: <span>Contribute to Deoxys | Edit on GitHub</span>,
+    text: <span>Contribute to Madara | Edit on GitHub</span>,
   },
   primaryHue: 10,
   useNextSeoProps() {
