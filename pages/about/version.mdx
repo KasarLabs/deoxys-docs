@@ -1,0 +1,52 @@
+## [v0.1.0](https://github.com/keep-starknet-strange/madara/releases/tag/v0.1.0)
+
+This is Madara's first release (compatible with Starknet `v0.13.1`) with the following features:
+
+* Starknet state construction and storage using a [Bonsai trie](https://github.com/keep-starknet-strange/bonsai-trie) implementation. 
+* Feeder gateway synchronization of Blocks, Transactions, Receipts, State Updates and Classes.
+* Block and Transaction hash verification.
+* JSON-RPC Endpoints supported:
+
+#### Read Methods
+
+| Status | Method                                     |
+| ------ | ------------------------------------------ |
+| ✅     | `starknet_specVersion`                     |
+| ✅     | `starknet_getBlockWithTxHashes`            |
+| ✅     | `starknet_getBlockWithReceipts`            |
+| ✅     | `starknet_getBlockWithTxs`                 |
+| ✅     | `starknet_getStateUpdate`                  |
+| ✅     | `starknet_getStorageAt`                    |
+| ✅     | `starknet_getTransactionStatus`            |
+| ✅     | `starknet_getTransactionByHash`            |
+| ✅     | `starknet_getTransactionByBlockIdAndIndex` |
+| ✅     | `starknet_getTransactionReceipt`           |
+| ✅     | `starknet_getClass`                        |
+| ✅     | `starknet_getClassHashAt`                  |
+| ✅     | `starknet_getClassAt`                      |
+| ✅     | `starknet_getBlockTransactionCount`        |
+| ✅     | `starknet_call`                            |
+| ✅     | `starknet_estimateFee`                     |
+| ✅     | `starknet_estimateMessageFee`              |
+| ✅     | `starknet_blockNumber`                     |
+| ✅     | `starknet_blockHashAndNumber`              |
+| ✅     | `starknet_chainId`                         |
+| ✅     | `starknet_syncing`                         |
+| ✅     | `starknet_getEvents`                       |
+| ✅     | `starknet_getNonce`                        |
+
+#### Trace Methods
+
+| Status | Method                            |
+| ------ | --------------------------------- |
+| ✅     | `starknet_traceTransaction`       |
+| ✅     | `starknet_simulateTransactions`   |
+| ✅     | `starknet_traceBlockTransactions` |
+
+#### Write methods
+
+| Status | Method                                 |
+| ------ | -------------------------------------- |
+| ✅     | `starknet_addInvokeTransaction`        |
+| ✅     | `starknet_addDeclareTransaction`       |
+| ✅     | `starknet_addDeployAccountTransaction` |

@@ -1,7 +1,7 @@
 {
-  "name": "deoxys-docs",
+  "name": "madara-docs",
   "version": "0.0.1",
-  "description": "Deoxys docs",
+  "description": "Madara docs",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -10,9 +10,9 @@
   "author": "KasarLabs <antiyro@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/KasarLabs/deoxys-docs"
+    "url": "https://github.com/keep-starknet-strange/madara-docs"
   },
-  "homepage": "https://github.com/KasarLabs/deoxys-docs#readme",
+  "homepage": "https://github.com/keep-starknet-strange/madara-docs#readme",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-brands-svg-icons": "^6.4.2",

@@ -16,9 +16,9 @@ Currently, there are primarily three methods for a node to keep track of the net
 
 - **Checking Proof Validation on L1**: Nodes can monitor the state of the network by observing L1 and ensuring that every time a proof is sent, they receive the updated state. This approach does not require trusting anyone and only necessitates keeping track of the latest valid transaction for Starknet.
 
-Each type of node setup comes with its own set of hardware requirements and trust assumptions. For Deoxys we decided to check the proof validation on the L1 as it is the fastest and less intensive way of verifying the state integrity.
+Each type of node setup comes with its own set of hardware requirements and trust assumptions. For Madara we decided to check the proof validation on the L1 as it is the fastest and less intensive way of verifying the state integrity.
 
-## Deoxys verification
+## Full node client verification
 
 Nodes that verify state based on L1 proof validations require similar resources to Ethereum nodes, offering simplicity and mobility with the tradeoff of higher latency due to intermittent proof submissions, although plans to increase proof frequency aim to reduce this latency.
 
@@ -35,11 +35,11 @@ This event provides three pieces of information:
 - `stateBlockNumber`: Corresponds to the last verified block number on L1.
 - `stateRoot`: Corresponds to the state root at the height of the last verified block number on L1.
 
-Deoxys then subscribes to this event and continuously monitors the updates to verify if the reported values match the data calculated during synchronization. If they do match, it confirms that the state is intact.
+Madara then subscribes to this event and continuously monitors the updates to verify if the reported values match the data calculated during synchronization. If they do match, it confirms that the state is intact.
 
 ## Layer 1 Access
 
-As described above, Deoxys requires an L1 RPC key to continuously listen to Layer 1. This key can be obtained from a centralized RPC provider or a personal Ethereum RPC access. Below is a non-exhaustive list of Ethereum RPC providers and full node clients:
+As described above, Madara requires an L1 RPC key to continuously listen to Layer 1. This key can be obtained from a centralized RPC provider or a personal Ethereum RPC access. Below is a non-exhaustive list of Ethereum RPC providers and full node clients:
 
 | Provider   | Website                                 | Features                                                                                                                    |
 | ---------- | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
@@ -50,7 +50,7 @@ As described above, Deoxys requires an L1 RPC key to continuously listen to Laye
 | Ankr       | [Ankr](https://www.ankr.com/)           | Offers a distributed computing platform that enables cost-effective and quick node deployment across multiple chains.       |
 | Moralis    | [Moralis](https://moralis.io/)          | Focuses on quick dApp development with automatic node handling, real-time data synchronization, and easy integration.       |
 
-You just need to provide the RPC URL in the format http, https, ws, or wss as an argument, and Deoxys will take care of communicating with it. Here is an example tutorial on how to retrieve an L1 key via Alchemy:
+You just need to provide the RPC URL in the format http, https, ws, or wss as an argument, and Madara will take care of communicating with it. Here is an example tutorial on how to retrieve an L1 key via Alchemy:
 
 <br />
 

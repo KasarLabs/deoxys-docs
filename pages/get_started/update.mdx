@@ -13,7 +13,7 @@ import { Tabs, Tab } from "nextra/components";
 
 In this section, we will guide you through the update process so that you can keep your Madara client up-to-date and continue to query the Starknet blockchain smoothly.
 
-Depending on how you chose to launch your customer, you can update it in the same way by choosing the appropriate category:
+Depending on how you chose to launch your client, you can update it in the same way by choosing the appropriate category:
 
 - [**Low-level**](#low-level-update-from-source) (from source directly)
 - [**Mid-level**](#mid-level-update) (from Docker **recommended**)
@@ -26,20 +26,11 @@ Depending on how you chose to launch your customer, you can update it in the sam
 <Steps>
 ### Update code
 
-First, navigate to your Madara project directory and fetch the latest changes from the Official [Madara](https://github.com/KasarLabs/deoxys) repository.
+First, navigate to your Madara project directory and fetch the latest changes from the Official [Madara](https://github.com/keep-starknet-strange/madara) repository. Or git checkout to your desired version.
 
 ```bash
 cd <your-destination-path>
 git pull origin main
-```
-
-### Update dependencies
-
-Next, update your Rust toolchain and dependencies to ensure compatibility with the latest code changes.
-
-```bash
-rustup update
-cargo update
 ```
 
 ### Rebuild program
@@ -103,8 +94,8 @@ docker pull madara:latest
 Stop and remove the existing Madara container to prevent conflicts.
 
 ```bash
-docker stop Madara
-docker rm Madara
+docker stop madara
+docker rm madara
 ```
 
 ### Run updated Docker image
@@ -176,7 +167,7 @@ docker-compose up -d
 You can view the logs of the running Madara service using the following command:
 
 ```bash
-docker-compose logs -f Madara
+docker-compose logs -f madara
 ```
 
 <Callout type="info" emoji="ℹ️">

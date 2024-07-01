@@ -48,13 +48,23 @@ Madara is designed to work seamlessly on a variety of modern _64-bit_ operating 
 
 For optimal performance of Madara, the following hardware configurations are recommended:
 
-| Network               | Memory | CPU Cores |
-| --------------------- | :----: | :-------: |
-| **Mainnet**           | 16 GB  |     4     |
-| **Testnet (Sepolia)** |  8 GB  |     4     |
-| **Appchains**         |  8 GB  |     4     |
+{/* prettier-ignore */}
+<Tabs items={['Full Node', 'Sequencer']}>
+	<Tab>
+		| Network               | Memory | CPU Cores |
+		| --------------------- | :----: | :-------: |
+		| **Mainnet**           |  16 GB |     8     |
+		| **Testnet (Sepolia)** |  8 GB  |     4     |
+		| **Appchains**         |  8 GB  |     4     |
+	</Tab>
+	<Tab>
+		We advise you to use the same specs as for Starknet mainnet as mentioned in the full node section, but depending on your app chain traffic these figures may increase for better performance.
+	</Tab>
+</Tabs>
 
 ### Disk Requirements
+
+The Madara client uses a [RocksDB](https://rocksdb.org/) key-value storage.
 
 {/* prettier-ignore */}
 <Tabs items={['Full Node', 'Sequencer']}>
@@ -67,6 +77,10 @@ For optimal performance of Madara, the following hardware configurations are rec
 </Tabs>
 
 #### Database Growth
+
+<Callout type="warning" emoji="⚠️">
+	Since the state of your network keeps growing, it is important to plan for slightly more storage than necessary to avoid maintenance.
+</Callout>
 
 {/* prettier-ignore */}
 <Tabs items={['Full Node', 'Sequencer']}>

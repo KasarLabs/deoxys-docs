@@ -37,7 +37,7 @@ const HeaderIcons = () => {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
       <a
-        href="https://github.com/kasarlabs/deoxys"
+        href="https://github.com/keep-starknet-strange/madara"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -71,10 +71,10 @@ const HeaderIcons = () => {
 const config: DocsThemeConfig = {
   logo: <Logo />,
   chat: {
-    link: "https://t.me/kasarlabs",
+    link: "https://github.com/keep-starknet-strange/madara",
     icon: <FaGithub style={{ fontSize: "24px" }} />,
   },
-  docsRepositoryBase: "https://github.com/kasarLabs/deoxys-docs/tree/main",
+  docsRepositoryBase: "https://github.com/keep-starknet-strange/madara-docs/tree/main",
   footer: {
     text: <span>MIT {new Date().getFullYear()} © Deoxys - Kasar Labs</span>,
   },

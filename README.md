@@ -1,7 +1,7 @@
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
 <div align="center">
-<img src="assets/images/deoxys.jpg" height="256" style="border-radius: 15px;">
+<img src="https://github.com/keep-starknet-strange/madara-branding/blob/main/logo/PNGs/Madara%20logomark%20-%20Red%20-%20Duotone.png?raw=true" height="256" style="border-radius: 15px;">
 </div>
 
 <div align="center">
@@ -9,21 +9,21 @@
 <!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
 
-[![GitHub Workflow Status](https://github.com/kasarLabs/deoxys-docs/actions/workflows/test.yml/badge.svg)](https://github.com/kasarLabs/deoxys-docs/actions/workflows/test.yml)
-[![Project license](https://img.shields.io/github/license/kasarLabs/deoxys.svg?style=flat-square)](LICENSE)
-[![Pull Requests welcome](https://img.shields.io/badge/PRs-welcome-ff69b4.svg?style=flat-square)](https://github.com/kasarLabs/deoxys-docs/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
-<a href="https://twitter.com/KasarLabs">
-<img src="https://img.shields.io/twitter/follow/KasarLabs?style=social"/>
+[![GitHub Workflow Status](https://github.com/keep-starknet-strange/madara-docs/actions/workflows/test.yml/badge.svg)](https://github.com/keep-starknet-strange/madara-docs/actions/workflows/test.yml)
+[![Project license](https://img.shields.io/github/license/keep-starknet-strange/madara.svg?style=flat-square)](LICENSE)
+[![Pull Requests welcome](https://img.shields.io/badge/PRs-welcome-ff69b4.svg?style=flat-square)](https://github.com/keep-starknet-strange/madara-docs/issues?q=is%3Aissue+is%3Aopen+label%3A%22help+wanted%22)
+<a href="https://twitter.com/madarastarknet">
+<img src="https://img.shields.io/twitter/follow/madarastarknet?style=social"/>
 </a>
-<a href="https://github.com/kasarlabs/deoxys">
-<img src="https://img.shields.io/github/stars/kasarlabs/deoxys?style=social"/>
+<a href="https://github.com/keep-starknet-strange/madara">
+<img src="https://img.shields.io/github/stars/keep-starknet-strange/madara?style=social"/>
 </a>
 
 </div>
 
-# 👽 Deoxys-docs: Starknet full node client documentation.
+# 🥷 Madara-docs: Madara client documentation.
 
-Documentation for Deoxys, a Starknet full node client, based on substrate, powered by Rust.
+Documentation for Madara, a Starknet client written in Rust.
 
 ## Local Development
 
