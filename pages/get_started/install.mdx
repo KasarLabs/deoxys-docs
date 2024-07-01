@@ -31,18 +31,8 @@ We first need to make sure you have everything needed to complete this tutorial.
 | Dependency        | Version              | Installation                                                     |
 | ----------------- | -------------------- | ---------------------------------------------------------------- |
 | rust              | rustc 1.74.0-nightly | `curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs sh`   |
-| clang             | Latest               | `apt-get install -y clang`                                       |
-| protobuf-compiler | Latest               | `apt-get install -y protobuf-compiler`                           |
-| build-essential   | Latest               | `apt-get install -y build-essential`                             |
 
 You can use this command to easily install all necessary dependencies:
-
-```bash
-sudo apt-get update && sudo apt-get install -y \
-  clang \
-  protobuf-compiler \
-  build-essential
-```
 
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s
@@ -50,11 +40,11 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s
 
 ### Get code
 
-Fetch the code from the Official [Madara](https://github.com/KasarLabs/Madara) repository in the folder of your choice.
+Fetch the code from the Official [Madara](https://github.com/KasarLabs/deoxys) repository in the folder of your choice.
 
 ```bash
 cd <your-destination-path>
-git clone https://github.com/KasarLabs/Madara .
+git clone https://github.com/KasarLabs/deoxys .
 ```
 
 ### Build program
