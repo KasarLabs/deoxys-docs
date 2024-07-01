@@ -77,8 +77,6 @@ Possible values:
 - `test`: The test network (testnet)
 - `integration`: The integration network
 
-- **`--port <PORT>`**: Set the network listening port.
-
 <br />
 - **`--l1-endpoint <URL>`**: Specify the Layer 1 endpoint the node will verify its state from.
 
@@ -148,13 +146,6 @@ Possible values:
 - **`--snap <BLOCK_NUMBER>`**: Start syncing from the closest snapshot available for the desired block (default is highest)
 <br />
 - **`--tmp`**: Run a temporary node. A temporary directory will be created to store the configuration and will be deleted at the end of the process. Note: the directory is random per process execution. This directory is used as base path which includes: database, node key and keystore. When `--dev` is given and no explicit `--base-path`, this option is implied.
-<br />
-- **`--cache`**: When enabled, more information about the blocks and their transactions is cached and stored in the database. This may improve response times for RPCs that require that information, but it also increases the memory footprint of the node.
-<br />
-- **`--db-cache <MiB>`**: Limit the memory the database cache can use.
-<br />
-- **`--trie-cache-size <Bytes>`**: Specify the state cache size. Providing `0` will disable the cache.
-  - [default: 67108864]
 <br />
 - **`--backup-every-n-blocks <BACKUP_EVERY_N_BLOCKS>`**: Specify the number of blocks after which a backup should be created.
 <br />
