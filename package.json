@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start"
   },
-  "author": "KasarLabs <antiyro@gmail.com>",
+  "author": "KasarLabs <antiyro@kasar.io>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/keep-starknet-strange/madara-docs"

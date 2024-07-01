@@ -13,7 +13,7 @@ const Logo = () => {
 
   return (
     <span style={{ display: "flex", alignItems: "center" }}>
-      <img src={logoSrc} alt="Deoxys Logo" style={{ height: "50px" }} />
+      <img src={logoSrc} alt="Madara Logo" style={{ height: "50px" }} />
     </span>
   );
 };
@@ -28,7 +28,7 @@ const BigLogo = () => {
 
   return (
     <span style={{ display: "flex", alignItems: "center" }}>
-      <img src={logoSrc} alt="Deoxys Logo" style={{ height: "175px" }} />
+      <img src={logoSrc} alt="Madara Logo" style={{ height: "175px" }} />
     </span>
   );
 };
@@ -44,21 +44,21 @@ const HeaderIcons = () => {
         <FaGithub style={{ fontSize: "24px" }} />
       </a>
       <a
-        href="https://t.me/kasarlabs"
+        href="https://t.me/madarastarknet"
         target="_blank"
         rel="noopener noreferrer"
       >
         <FaTelegram style={{ fontSize: "24px" }} />
       </a>
       <a
-        href="https://twitter.com/kasarlabs"
+        href="https://twitter.com/madarastarknet"
         target="_blank"
         rel="noopener noreferrer"
       >
         <FaTwitter style={{ fontSize: "24px" }} />
       </a>
       <a
-        href="https://medium.com/kasarlabs"
+        href="https://medium.com/madarastarknet"
         target="_blank"
         rel="noopener noreferrer"
       >
@@ -76,10 +76,10 @@ const config: DocsThemeConfig = {
   },
   docsRepositoryBase: "https://github.com/keep-starknet-strange/madara-docs/tree/main",
   footer: {
-    text: <span>MIT {new Date().getFullYear()} © Deoxys - Kasar Labs</span>,
+    text: <span>MIT {new Date().getFullYear()} © Madara - Keep Starknet Strange</span>,
   },
   editLink: {
-    text: <span>Contribute to Deoxys | Edit on GitHub</span>,
+    text: <span>Contribute to Madara | Edit on GitHub</span>,
   },
   primaryHue: 10,
   useNextSeoProps() {
