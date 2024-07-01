@@ -8,8 +8,8 @@ const Logo = () => {
 
   const logoSrc =
     resolvedTheme === "dark"
-      ? "https://github.com/KasarLabs/brand/blob/main/projects/deoxys/Full/GradientFullWhite.png?raw=true"
-      : "https://github.com/KasarLabs/brand/blob/main/projects/deoxys/Full/GradientFullBlack.png?raw=true";
+      ? "https://github.com/keep-starknet-strange/madara-branding/blob/main/logo/PNGs/Madara%20logomark%20-%20White%20-%20Duotone.png?raw=true"
+      : "https://github.com/keep-starknet-strange/madara-branding/blob/main/logo/PNGs/Madara%20logomark%20-%20Black%20-%20Duotone.png?raw=true";
 
   return (
     <span style={{ display: "flex", alignItems: "center" }}>
@@ -23,8 +23,8 @@ const BigLogo = () => {
 
   const logoSrc =
     resolvedTheme === "dark"
-      ? "https://github.com/KasarLabs/brand/blob/main/projects/deoxys/Full/GradientFullWhite.png?raw=true"
-      : "https://github.com/KasarLabs/brand/blob/main/projects/deoxys/Full/GradientFullBlack.png?raw=true";
+      ? "https://github.com/keep-starknet-strange/madara-branding/blob/main/logo/PNGs/Madara%20logomark%20-%20White%20-%20Duotone.png?raw=true"
+      : "https://github.com/keep-starknet-strange/madara-branding/blob/main/logo/PNGs/Madara%20logomark%20-%20Black%20-%20Duotone.png?raw=true";
 
   return (
     <span style={{ display: "flex", alignItems: "center" }}>

@@ -27,18 +27,18 @@ cargo run -- --help
 
 <Callout type="warning" emoji="⚠️">
   Some of the command-line options are from Substrate and not supported by
-  Deoxys. Please reffer to the next section for the available commands.
+  Madara. Please reffer to the next section for the available commands.
 </Callout>
 
 Below are some essential command-line options and a categorized list of advanced configurations:
 
 ### Basic Command-Line Options
 
-Here are the recomanded options for a quick and simple configuration of your Deoxys full node:
+Here are the recomanded options for a quick and simple configuration of your Madara full node:
 
 - **`--name <NAME>`**: The human-readable name for this node. It's used as network node name
 
-- **`-d, --base-path <PATH>`**: Set the directory for Starknet data (dafault is `/tmp/deoxys`).
+- **`-d, --base-path <PATH>`**: Set the directory for Starknet data (dafault is `/tmp/madara`).
 
 - **`-n, --network <NETWORK>`**: The network type to connect to `main`, `test`, or `integration`
 
@@ -76,10 +76,6 @@ Possible values:
 - `main`: The main network (mainnet)
 - `test`: The test network (testnet)
 - `integration`: The integration network
-
-<br />
-- **`--chain <chain>`**: Select the blockchain configuration you want to sync from (currently only `starknet` is supported by default).
-<br />
 
 - **`--port <PORT>`**: Set the network listening port.
 
@@ -147,7 +143,7 @@ Possible values:
 <summary className="nd-details-heading">&nbsp;**Database**</summary>
 <p>
 <br />
-- **`-d, --base-path <PATH>`** [default: /tmp/deoxys] Specify custom base path
+- **`-d, --base-path <PATH>`** [default: /tmp/madara] Specify custom base path
 <br />
 - **`--snap <BLOCK_NUMBER>`**: Start syncing from the closest snapshot available for the desired block (default is highest)
 <br />
